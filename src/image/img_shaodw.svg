@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="480px" viewBox="0 0 320 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>img_shaodw</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="47.9230523%" cy="66.041584%" fx="47.9230523%" fy="66.041584%" r="146.815902%" gradientTransform="translate(0.479231,0.660416),scale(1.000000,0.666667),rotate(89.459601),scale(1.000000,0.687200),translate(-0.479231,-0.660416)" id="radialGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="食之契约H5_CV结束_官方" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="img_shaodw" fill="url(#radialGradient-1)" x="0" y="0" width="320" height="480"></rect>
+    </g>
+</svg>
