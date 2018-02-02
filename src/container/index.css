@@ -4,6 +4,14 @@
 	background: url(../image/beijingkaoya.gif) center top no-repeat;
 	background-size: cover;
 }
+.shade_wrapper_1{
+
+}
+.shade_wrapper_2{
+	height: 100%;
+	background: url(../image/img_shaodw.png) center bottom no-repeat;
+	background-size: cover;
+}
 .subTitle_wrap{
 	position: absolute;
 	bottom: 7.3%;
@@ -27,18 +35,18 @@
 	height: 58px;
 	line-height: 58px;
 }
-.an_sub_5_1{
+.subTitle.an_sub_5_1{
 	transform: translateY(0);
 }
-.an_sub_5_2{
+.subTitle.an_sub_5_2{
 	transform: translateY(-58px);
 }
-.an_sub_5_3{
+.subTitle.an_sub_5_3{
 	transform: translateY(-116px);
 }
-.an_sub_5_4{
+.subTitle.an_sub_5_4{
 	transform: translateY(-174px);
 }
-.an_sub_5_5{
+.subTitle.an_sub_5_5{
 	transform: translateY(-232px);
 }

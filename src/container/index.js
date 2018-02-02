@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './index.css';
 import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
+import ttt from '../audio/ttt.mp3';
+import hhh from '../audio/hhh.mp3';
 
 export default class index extends Component{
 	constructor(props){
@@ -43,18 +45,21 @@ export default class index extends Component{
 		}
 		return(
 			<div className='main_wrapper'>
-				<ReactAudioPlayer
-					src={kaoyaMp3}
-				  autoPlay
-				  listenInterval={20}
-					onListen={(passed)=>{
-						this.onHandleListen(passed, checkPointArr);
-					}}
-					onEnded={()=>{
-						this.setState({boolSwitch: true});
-					}}
-				/>
-			<SubTitle index={this.state.index} subTxtArr={this.state.subTxt.kaoya} />
+				<div className={this.state.boolSwitch ? 'shade_wrapper_2' : 'shade_wrapper_1'}>
+					<ReactAudioPlayer
+						src={kaoyaMp3}
+					  autoPlay
+					  listenInterval={20}
+						onListen={(passed)=>{
+							this.onHandleListen(passed, checkPointArr);
+						}}
+						onEnded={()=>{
+							this.setState({boolSwitch: true});
+						}}
+					/>
+					<EndPart />
+					<SubTitle index={this.state.index} subTxtArr={this.state.subTxt.kaoya} />
+				</div>
 			</div>
 		)
 	}
@@ -88,6 +93,20 @@ class SubTitle extends Component{
 					})}
 				</div>
 			</div>
+		)
+	}
+}
+
+class EndPart extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+
+		};
+	}
+	render(){
+		return(
+			<div></div>
 		)
 	}
 }
