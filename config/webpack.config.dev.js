@@ -142,7 +142,6 @@ module.exports = {
 
           {
             test: /\.mp3$/,
-            include: 'src',
             loader: 'file-loader',
             options: {
               limit: 10000000,

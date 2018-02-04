@@ -9,10 +9,12 @@ class Routes extends Component {
 	render(){
 		return(
 			<Router>
-				<Route path='/kaoya' component={Index} />
+				<div style={{height: '100%'}}>
+					<Route path='/kaoya' render={() => <Index roles='kaoya' />} />
+					<Route path='/haha' render={() => <Index roles='haha' />} />
+				</div>
 			</Router>
 		)
 	}
 }
-
 export default Routes;

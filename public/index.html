@@ -11,6 +11,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -43,21 +44,55 @@
           hacks: window.viewportUnitsBuggyfillHacks
         });
 
-        var winDPI = window.devicePixelRatio;
-            var uAgent = window.navigator.userAgent;
-            var screenHeight = window.screen.height;
-            var screenWidth = window.screen.width;
-            var winWidth = window.innerWidth;
-            var winHeight = window.innerHeight;
-            // alert(
-            //     "Windows DPI:" + winDPI +
-            //     ";\ruAgent:" + uAgent +
-            //     ";\rScreen Width:" + screenWidth +
-            //     ";\rScreen Height:" + screenHeight +
-            //     ";\rWindow Width:" + winWidth +
-            //     ";\rWindow Height:" + winHeight
-            // )
+        let winDPI = window.devicePixelRatio;
+        let uAgent = window.navigator.userAgent;
+        let screenHeight = window.screen.height;
+        let screenWidth = window.screen.width;
+        let winWidth = window.innerWidth;
+        let winHeight = window.innerHeight;
+        // alert(
+        //     "Windows DPI:" + winDPI +
+        //     ";\ruAgent:" + uAgent +
+        //     ";\rScreen Width:" + screenWidth +
+        //     ";\rScreen Height:" + screenHeight +
+        //     ";\rWindow Width:" + winWidth +
+        //     ";\rWindow Height:" + winHeight
+        // )
+        let audio = document.getElementsByClassName('bgm')[0];
+        let isWeChat = ()=>{
+          var ua = window.navigator.userAgent.toLowerCase();
+          if (ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === 'micromessenger') {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        if(audio){
+          if(isWeChat()){
+            document.addEventListener("WeixinJSBridgeReady", function () {
+              audio.play();
+            }, false);
+          }
+          else {
+            // let creatTouchstartEventAndDispatch = function  (e) {
+            //   let event = document.createEvent('Events');
+            //   event.initEvent('click', true, true);
+            //   e.dispatchEvent(event);
+            // }
+            // document.addEventListener('click', function(){
+            //   audio.play();
+            // });
+            // creatTouchstartEventAndDispatch(document);
+            audio.play();
+          }
+        }
       }
+      document.addEventListener('DOMContentLoaded', function () {
+
+        (function audioAutoPlay() {
+
+        })();
+      });
     </script>
   </body>
 </html>
