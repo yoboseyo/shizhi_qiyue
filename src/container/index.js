@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './index.css';
+import '../plugin/rain/css/reset.min.css';
+import '../plugin/rain/css/style.css';
 import {withRouter} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
-import ttt from '../audio/ttt.mp3';
-import hhh from '../audio/hhh.mp3';
 
 class index extends Component{
 	constructor(props){
@@ -55,10 +55,15 @@ class index extends Component{
 		this.rap.audioEl.currentTime = 0.0;
 		this.rap.audioEl.play();
 	}
+	componentDidMount(){
+		demo.init();
+	}
 	render(){
 		let data = this.state.data;
 		return(
 			<div className="main_wrapper">
+				<canvas id="canvas">
+				</canvas>
 				<div className={this.state.boolSwitch ? 'shade shade_wrapper_2' : 'shade shade_wrapper_1'}>
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap = element; }}
@@ -89,7 +94,7 @@ class index extends Component{
 					this.state.boolShare ?
 					<div
 						className="shade_share"
-						onClick={()=>{
+						onTouchEnd={()=>{
 							this.onShareSwitch(false);
 						}}
 					></div>
