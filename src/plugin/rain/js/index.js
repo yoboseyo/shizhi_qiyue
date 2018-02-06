@@ -6,7 +6,7 @@
 // - falling rain particles are drawn as vector lines
 // - splash particles are lazily pre-rendered so gradients aren't computed each frame
 // - all particles make use of object pooling to further boost performance
-
+import dat from 'dat.gui'
 var DEMO = function(){
 	// initialize
 	document.addEventListener("DOMContentLoaded", function() {
@@ -68,7 +68,7 @@ var DEMO = function(){
 			Ticker.addListener(demo.step);
 
 			//
-			const gui = new window.dat.GUI();
+			const gui = new dat.GUI();
 			gui.add(demo, 'speed', 0.2, 2);
 
 			// fade out instructions after a few seconds
