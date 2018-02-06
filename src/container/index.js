@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './index.css';
-import '../plugin/rain/css/reset.min.css';
 import '../plugin/rain/css/style.css';
 import {withRouter} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
+import DEMO from '../plugin/rain/js/index';
 
 class index extends Component{
 	constructor(props){
@@ -24,16 +24,19 @@ class index extends Component{
 				}
 
 
-
 			},
 			index: 0,
 			boolSwitch: false,
 			boolShare: false,
-			point: 0
+			point: 0,
+			//iOS中safari使用state
+			playEnd: true,
+			isFirst: true
 		};
 		this.onHandleListen = this.onHandleListen.bind(this);
 		this.onShareSwitch = this.onShareSwitch.bind(this);
 		this.onReset = this.onReset.bind(this);
+		this.onPlay = this.onPlay.bind(this);
 	}
 	onHandleListen(passed, checkPoint){
 		let nextIndex = this.state.index;
@@ -56,14 +59,16 @@ class index extends Component{
 		this.rap.audioEl.play();
 	}
 	componentDidMount(){
-		demo.init();
+		DEMO();
+	}
+	onPlay(){
+		this.rap.audioEl.play();
 	}
 	render(){
 		let data = this.state.data;
 		return(
 			<div className="main_wrapper">
-				<canvas id="canvas">
-				</canvas>
+				<canvas id="canvas"></canvas>
 				<div className={this.state.boolSwitch ? 'shade shade_wrapper_2' : 'shade shade_wrapper_1'}>
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap = element; }}
@@ -74,10 +79,7 @@ class index extends Component{
 							this.onHandleListen(passed, data[this.props.roles].checkPoint);
 						}}
 						onEnded={()=>{
-							this.setState({boolSwitch: true, index: 0});
-						}}
-						onCanPlay={()=>{
-
+							this.setState({boolSwitch: true, index: 0, playEnd: true});
 						}}
 					/>
 					{/*
@@ -87,7 +89,7 @@ class index extends Component{
 						this.state.boolSwitch ?
 						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
 						:
-						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} />
+						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} />
 					}
 				</div>
 				{
@@ -102,6 +104,22 @@ class index extends Component{
 					null
 				}
 				<div className="point">{this.state.point}</div>
+				{
+					!window.canAutoPlay() && this.state.playEnd && this.state.isFirst ?
+					<div
+						onTouchStart={(e)=>{
+							if(window.canAutoPlay()){
+								return;
+							} else if(this.state.playEnd) {
+								this.onPlay();
+								this.setState({playEnd: false, isFirst: false});
+							}
+						}}
+						className="play_shade"
+					></div>
+					:
+					null
+				}
 			</div>
 		)
 	}
@@ -128,7 +146,7 @@ class SubTitle extends Component{
 	}
 	render(){
 		return(
-			<div className="subTitle_wrap">
+			<div id="sub" className="subTitle_wrap">
 				<div ref="subTitle" className="subTitle">
 					{this.props.txtArr.map((item, index)=>{
 						return(
@@ -136,6 +154,12 @@ class SubTitle extends Component{
 						)
 					})}
 				</div>
+				{
+					this.props.isFirst && !window.canAutoPlay() ?
+					<div className="play_txt">点击屏幕开始播放</div>
+					:
+					null
+				}
 			</div>
 		)
 	}
