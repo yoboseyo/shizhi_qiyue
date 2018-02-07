@@ -12,12 +12,25 @@ class Routes extends Component {
 			<Router>
 				<div style={{height: '100%'}}>
 					<Route path='/kaoya' render={()=>{
-							
-							document.title = '北京烤鸭の电话'
+							document.title = '除夕，我在约定之地等您。'
 							return (<Index roles='kaoya' />)
 						}}
 					/>
-					<Route path='/haha' render={() => <Index roles='haha' />} />
+					<Route path='/xiaolongxia' render={()=>{
+							document.title = '过年，和我待在家里！'
+							return (<Index roles='xiaolongxia' />)
+						}}
+					/>
+					<Route path='/zhutongfan' render={()=>{
+							document.title = '过年想只和你在一起，对，就你。'
+							return (<Index roles='zhutongfan' />)
+						}}
+					/>
+					<Route path='/qiudaoyu' render={()=>{
+							document.title = '嗯..守岁，猫咪也说要等你一起。'
+							return (<Index roles='qiudaoyu' />)
+						}}
+					/>
 				</div>
 			</Router>
 		)

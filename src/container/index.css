@@ -1,7 +1,21 @@
 .main_wrapper{
 	position: relative;
 	height: 100%;
+}
+.bg_kaoya{
 	background: url(../image/beijingkaoya.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_xiaolongxia{
+	background: url(../image/xiaolongxia.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_zhutongfan{
+	background: url(../image/zhutongfan.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_qiudaoyu{
+	background: url(../image/qiudaoyu.png) center top no-repeat;
 	background-size: cover;
 }
 .shade_wrapper_1{
@@ -20,20 +34,22 @@
 	bottom: 7.3%;
 	left: 50%;
 	width: 100%;
-	height: 58px;
 	overflow: hidden;
 	font-size: 24px;
 	line-height: 58px;
 	text-align: center;
 	color: #fff;
 	background: url(../image/img_tc.png) center center no-repeat;
-	background-size: cover;
+	background-size: 100%;
 	transform: translateX(-50%);
 }
-
-.subTitle p{
+.subTitle_1_wrap{
 	height: 58px;
-	line-height: 58px;
+	background-size: 100%;
+}
+.subTitle_2_wrap{
+	height: 116px;
+	background-size: 100%;
 }
 .subTitle{
 	position: absolute;
@@ -41,6 +57,18 @@
 	width: 100%;
 	/* transform: translateY(58px); */
 	transition: .8s ease;
+}
+.subTitle p{
+	width: 90%;
+	margin: 0 auto;
+}
+.subTitle_1_wrap p{
+	height: 58px;
+	line-height: 58px;
+}
+.subTitle_2_wrap p{
+	height: 116px;
+	line-height: 58px;
 }
 .endPart_wrapper{
 	position: absolute;
