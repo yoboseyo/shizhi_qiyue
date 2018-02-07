@@ -139,7 +139,6 @@ module.exports = {
             },
           },
           //mp3
-
           {
             test: /\.mp3$/,
             loader: 'file-loader',

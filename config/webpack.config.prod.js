@@ -145,12 +145,12 @@ module.exports = {
           },
           //mp3
           {
-            test: [/\.mp3$/],
-            loader: require.resolve('url-loader'),
+            test: /\.mp3$/,
+            loader: 'file-loader',
             options: {
-              limit: 100000,
+              limit: 10000000,
               name: 'static/media/[name].[hash:8].[ext]',
-            },
+            }
           },
           // Process JS with Babel.
           {
@@ -201,8 +201,38 @@ module.exports = {
                           path: 'postcss.config.js'
                         },
                         // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
+                        //https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
+                        plugins: () => [
+                          require('postcss-flexbugs-fixes'),
+                          require("autoprefixer")({
+                              browsers: [
+                                  '>1%',
+                                  'last 4 versions',
+                                  'Firefox ESR',
+                                  'not ie < 9', // React doesn't support IE8 anyway
+                              ],
+                              flexbox: 'no-2009',
+                          }),
+                          require("postcss-aspect-ratio-mini"),
+                          require("postcss-write-svg")({ utf8: false }),
+                          require("postcss-cssnext"),
+                          require("postcss-px-to-viewport")({
+                              viewportWidth: 640,
+                              viewportHeight: 1136,
+                              unitPrecision: 3,
+                              viewportUnit: 'vw',
+                              selectorBlackList: ['.ignore', '.hairlines'],
+                              minPixelValue: 1,
+                              mediaQuery: false
+                          }),
+                          require("postcss-viewport-units"),
+                          require("cssnano")({
+                              preset: "advanced",
+                              autoprefixer: false,
+                              "postcss-zindex": false
+                          })
+                        ],
                         // plugins: () => [
                         //   require('postcss-flexbugs-fixes'),
                         //   autoprefixer({

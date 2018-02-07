@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import './index.css';
 import '../plugin/rain/css/style.css';
+import '../plugin/leaf/css/style.css'
 import {withRouter} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
 import DEMO from '../plugin/rain/js/index';
+import LEAF from '../plugin/leaf/js/index';
+import vConsole from 'vconsole';
+import $ from 'jquery';
+import '../plugin/ripples/jquery.ripples-min.js';
+new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -59,7 +65,9 @@ class index extends Component{
 		this.rap.audioEl.play();
 	}
 	componentDidMount(){
-		DEMO();
+		//DEMO();
+		//LEAF();
+		console.log($('.main_wrapper'));
 	}
 	onPlay(){
 		this.rap.audioEl.play();
@@ -68,6 +76,7 @@ class index extends Component{
 		let data = this.state.data;
 		return(
 			<div className="main_wrapper">
+				<div class="falling-leaves"></div>
 				<canvas id="canvas"></canvas>
 				<div className={this.state.boolSwitch ? 'shade shade_wrapper_2' : 'shade shade_wrapper_1'}>
 					<ReactAudioPlayer
