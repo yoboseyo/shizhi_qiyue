@@ -38,9 +38,7 @@ var LEAF = ()=>{
 
         // Choose axis of rotation.
         // If axis is not X, chose a random static x-rotation for greater variability
-        //叶片旋转速度
-        leaf.rotation.speed = Math.random()*2;
-        //leaf.rotation.speed = Math.random()*10;
+        leaf.rotation.speed = Math.random()*10;
         var randomAxis = Math.random();
         if (randomAxis > 0.5) {
           leaf.rotation.axis = 'X';
@@ -56,9 +54,7 @@ var LEAF = ()=>{
 
         // random speed
         leaf.xSpeedVariation = Math.random() * 0.8 - 0.4;
-        //下落速度
-        //leaf.ySpeed = Math.random() + 1.5;
-        leaf.ySpeed = Math.random() + 0.2;
+        leaf.ySpeed = Math.random() + 1.5;
 
         return leaf;
       }
@@ -102,9 +98,7 @@ var LEAF = ()=>{
           this.options.wind.speed = function(t, y) {
             // should go from full wind speed at the top, to 1/2 speed at the bottom, using leaf Y
             var a = this.magnitude/2 * (screenHeight - 2*y/3)/screenHeight;
-            //Y速度
-            return (a * Math.sin(2*Math.PI/this.duration * t + (3 * Math.PI/2)) + a)/6;
-            //return a * Math.sin(2*Math.PI/this.duration * t + (3 * Math.PI/2)) + a;
+            return a * Math.sin(2*Math.PI/this.duration * t + (3 * Math.PI/2)) + a;
           }
         }
       }
