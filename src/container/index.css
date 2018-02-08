@@ -18,6 +18,34 @@
 	background: url(../image/qiudaoyu.png) center top no-repeat;
 	background-size: cover;
 }
+.bg_qiaokeli{
+	background: url(../image/qiaokeli.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_guilinggao{
+	background: url(../image/guilinggao.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_yunwu{
+	background: url(../image/yunwu.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_cuyu{
+	background: url(../image/cuyu.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_egan{
+	background: url(../image/egan.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_futejia{
+	background: url(../image/futejia.gif) center top no-repeat;
+	background-size: cover;
+}
+.bg_tilamisu{
+	background: url(../image/tilamisu.gif) center top no-repeat;
+	background-size: cover;
+}
 .shade_wrapper_1{
 	height: 100%;
 	background: url(../image/img_shadow3.png) center bottom no-repeat;
@@ -36,24 +64,24 @@
 	width: 100%;
 	overflow: hidden;
 	font-size: 24px;
-	line-height: 58px;
 	text-align: center;
 	color: #fff;
-	background: url(../image/img_tc.png) center center no-repeat;
-	background-size: 100%;
+
 	transform: translateX(-50%);
 }
 .subTitle_1_wrap{
 	height: 58px;
-	background-size: 100%;
+	background: url(../image/img_tc.png) center center no-repeat;
+	background-size: cover;
 }
 .subTitle_2_wrap{
-	height: 116px;
-	background-size: 100%;
+	height: 88px;
+	background: url(../image/img_tc_high.png) center center no-repeat;
+	background-size: cover;
 }
 .subTitle{
 	position: absolute;
-	top: 58px;
+	top: 100%;
 	width: 100%;
 	/* transform: translateY(58px); */
 	transition: .8s ease;
@@ -61,14 +89,16 @@
 .subTitle p{
 	width: 90%;
 	margin: 0 auto;
+	vertical-align: middle;
 }
 .subTitle_1_wrap p{
 	height: 58px;
 	line-height: 58px;
 }
 .subTitle_2_wrap p{
-	height: 116px;
-	line-height: 58px;
+	height: 88px;
+	padding: 12px 0;
+	line-height: 32px;
 }
 .endPart_wrapper{
 	position: absolute;
@@ -82,6 +112,12 @@
 	width: 100%;
 	height: 100%;
 	animation: fadeInOut 2s ease-in infinite;
+}
+.play_txt_1{
+	line-height: 58px;
+}
+.play_txt_2{
+	line-height: 88px;
 }
 .role_name{
 	height: 58px;

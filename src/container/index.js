@@ -22,6 +22,7 @@ class index extends Component{
 						'我会准备好和新年相配的烟花与佳肴，在约定之地等待您的到来。',
 					],
 					line: 2,
+					lineArr: [2, 2, 1, 2],
 					checkPoint: [0, 6, 15, 20]
 				},
 				xiaolongxia: {
@@ -33,6 +34,7 @@ class index extends Component{
 						'你这样会让人有机可乘的，笨蛋，跟我回家！',
 					],
 					line: 1,
+					lineArr: [],
 					checkPoint: [0, 5, 8, 14]
 				},
 				zhutongfan: {
@@ -44,6 +46,7 @@ class index extends Component{
 						'嘿嘿嘿，好开心，希望能永远和御侍在一起。',
 					],
 					line: 2,
+					lineArr: [1, 2, 1, 1],
 					checkPoint: [0, 7, 16, 22]
 				},
 				qiudaoyu: {
@@ -55,10 +58,93 @@ class index extends Component{
 						'明年，院子里会有更多的猫咪吧。到那个时候，你还会来吗？',
 					],
 					line: 2,
+					lineArr: [1, 2, 1, 1],
 					checkPoint: [0, 4, 10, 18]
+				},
+				qiaokeli: {
+					roleName: '巧克力',
+					txt: [
+						'笑得这么开心？我就当——是因为我了。还冷吗？',
+						'你问我有没有想你？ 嗯……你说呢？',
+						'等等，你嘴边……慢慢吃，我的这份也给你。',
+						'新的一年里，我希望每天都能看到你的笑脸，你会帮我实现愿望的，对吗？',
+					],
+					line: 2,
+					lineArr: [1, 1, 1, 2],
+					checkPoint: [0, 6, 10, 15]
+				},
+				guilinggao: {
+					roleName: '龟苓膏',
+					txt: [
+						'怎么了，回家的东西还没有整理好吗？',
+						'这有什么可害怕的？真是……拿你没办法。',
+						'只是说你两句，不开心了？',
+						'我来给你收拾行李，别害怕了。这样，是不是会让你好受一些？',
+					],
+					line: 2,
+					lineArr: [1, 1, 1, 2],
+					checkPoint: [0, 5, 10, 14]
+				},
+				yunwu: {
+					roleName: '庐山云雾',
+					txt: [
+						'世事茫茫，光阴有限，算来何必奔忙。',
+						'山下的新年烟火虽美……但……不及在山涧，与你朝夕相对。',
+						'呵……何需惊讶？……来，这杯茶给你。',
+						'愿来年的此刻，你也会来到这幽幽山间，与我一同迎接新岁的到来。',
+					],
+					line: 2,
+					lineArr: [1, 2, 1, 2],
+					checkPoint: [0, 5, 13, 19]
+				},
+				cuyu: {
+					roleName: '西湖醋鱼',
+					txt: [
+						'长久以来，此处只有小女子一人，今日有幸能盼来您的到访，心中不甚欢喜。',
+						'您口中的新年，是何人？小女子从未听闻过。',
+						'但能让您如此欣喜……新年一定也是一位妙趣横生的人吧。',
+						'那是？似是繁花，但又为何会是在空中？您能带小女子去窥其真容吗？',
+					],
+					line: 2,
+					lineArr: [2, 1, 2, 2],
+					checkPoint: [0, 9, 17, 25]
+				},
+				egan: {
+					roleName: '法式鹅肝',
+					txt: [
+						'是你……开始签订契约吧。',
+						'这是，命运的安排。',
+						'喜欢……这朵花？——那就赠予你吧。',
+						'毕竟，你是我的命定之人。',
+					],
+					line: 1,
+					lineArr: [],
+					checkPoint: [0, 5, 9, 15]
+				},
+				futejia: {
+					roleName: '伏特加',
+					txt: [
+						'下雪了，要不要来一杯？',
+						'你要是喝醉的话，我可不负责送你回家。',
+						'诶~没想到你还挺能喝的，再来一杯！',
+						'有趣！再来再来~嗝~好开心……和你……在一起……',
+					],
+					line: 1,
+					lineArr: [],
+					checkPoint: [0, 5, 11, 17]
+				},
+				tilamisu: {
+					roleName: '提拉米苏',
+					txt: [
+						'欢迎回来，御侍大人，年夜饭已经准备好了哦。',
+						'今夜是阖家团圆的时刻呢，能和御侍大人在一起，我真的很开心。',
+						'御侍大人在新的一年里，有什么想要实现的愿望吗？',
+						'诶？我的心愿吗？呵呵，如果御侍大人的心愿会实现，那我便也得偿所愿了呢。',
+					],
+					line: 2,
+					lineArr: [1, 2, 2, 2],
+					checkPoint: [0, 6, 14, 19]
 				}
-
-
 			},
 			index: 0,
 			boolSwitch: false,
@@ -211,7 +297,7 @@ class SubTitle extends Component{
 				</div>
 				{
 					this.props.isFirst && !window.canAutoPlay() ?
-					<div className="play_txt">点击屏幕开始播放</div>
+					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>点击屏幕开始播放</div>
 					:
 					null
 				}

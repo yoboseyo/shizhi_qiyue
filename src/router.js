@@ -31,6 +31,41 @@ class Routes extends Component {
 							return (<Index roles='qiudaoyu' />)
 						}}
 					/>
+					<Route path='/qiaokeli' render={()=>{
+							document.title = '明年，在我身边绽放笑颜吧'
+							return (<Index roles='qiaokeli' />)
+						}}
+					/>
+					<Route path='/guilinggao' render={()=>{
+							document.title = '别害怕，还有我在这里。'
+							return (<Index roles='guilinggao' />)
+						}}
+					/>
+					<Route path='/yunwu' render={()=>{
+							document.title = '青山之中，与你静候新岁'
+							return (<Index roles='yunwu' />)
+						}}
+					/>
+					<Route path='/cuyu' render={()=>{
+							document.title = '想要和您一起，看空中的繁花。'
+							return (<Index roles='cuyu' />)
+						}}
+					/>
+					<Route path='/egan' render={()=>{
+							document.title = '在新旧交替的此刻，我们相遇了'
+							return (<Index roles='egan' />)
+						}}
+					/>
+					<Route path='/futejia' render={()=>{
+							document.title = '除夕？...你得陪我喝到尽兴才行。'
+							return (<Index roles='futejia' />)
+						}}
+					/>
+					<Route path='/tilamisu' render={()=>{
+							document.title = '您的新年愿望，是什么呢？'
+							return (<Index roles='tilamisu' />)
+						}}
+					/>
 				</div>
 			</Router>
 		)
