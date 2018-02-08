@@ -7,6 +7,9 @@ import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
+import SNOW from '../plugin/snow/js/jquery.let_it_snow';
+import vConsole from 'vconsole';
+new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -187,6 +190,9 @@ class index extends Component{
 			case 'qiudaoyu':
 				LEAF();
 				break;
+			case 'xiaolongxia':
+				SNOW(window.jQuery);
+				break;
 			default:
 				break;
 		}
@@ -207,6 +213,8 @@ class index extends Component{
 					<canvas id="canvas"></canvas>
 					: this.props.roles === 'qiudaoyu' ?
 					<div class="falling-leaves"></div>
+					: this.props.roles === 'xiaolongxia' ?
+					<canvas className="snow"></canvas>
 					:
 					null
 				}
