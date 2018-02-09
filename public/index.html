@@ -69,24 +69,14 @@
             ";\rWindow Width:" + winWidth +
             ";\rWindow Height:" + winHeight
         )*/
-        let audio = document.getElementsByClassName('bgm')[0];
-        if(audio){
+        let cVoice = document.getElementsByClassName('cVoice')[0];
+        let bgm = document.getElementsByClassName('bgm')[0];
+        if(cVoice && bgm){
           if(window.canAutoPlay()){
             document.addEventListener("WeixinJSBridgeReady", function () {
-              audio.play();
+              // cVoice.play();
+              // bgm.play();
             }, false);
-          }
-          else {
-
-            /*let creatTouchstartEventAndDispatch = function  (e) {
-              let event = document.createEvent('Events');
-              event.initEvent('click', true, true);
-              document.getElementById('sub').dispatchEvent(event);
-            }
-            document.getElementById('sub').addEventListener('click', function(){
-              audio.play();
-            });
-            creatTouchstartEventAndDispatch(document);*/
           }
         }
         // setTimeout(()=>{

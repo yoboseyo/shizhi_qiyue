@@ -5,11 +5,12 @@ import '../plugin/leaf/css/style.css'
 import {withRouter} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 import kaoyaMp3 from '../audio/test.mp3';
+import bgm from '../audio/hhh.mp3';
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
 import SNOW from '../plugin/snow/js/jquery.let_it_snow';
-import vConsole from 'vconsole';
-new vConsole();
+// import vConsole from 'vconsole';
+// new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -152,7 +153,10 @@ class index extends Component{
 			index: 0,
 			boolSwitch: false,
 			boolShare: false,
+			cvCanPlay: false,
+			bgmCanPlay: false,
 			point: 0,
+			pointBgm: 0,
 			//iOS中safari使用state
 			playEnd: true,
 			isFirst: true
@@ -201,11 +205,20 @@ class index extends Component{
 	}
 	onPlay(){
 		this.rap.audioEl.play();
+		this.rap2.audioEl.play();
 	}
 	render(){
+		let _this = this;
 		let data = this.state.data;
 		let role = this.props.roles;
 		let bgClass = 'main_wrapper bg_' + role;
+		console.log(this.state.cvCanPlay,this.state.bgmCanPlay,window.canAutoPlay());
+		if(this.state.cvCanPlay && this.state.bgmCanPlay && window.canAutoPlay()){
+				console.log(1111)
+				_this.rap.audioEl.play();
+				_this.rap2.audioEl.play();
+
+		}
 		return(
 			<div className={bgClass}>
 				{
@@ -222,13 +235,31 @@ class index extends Component{
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap = element; }}
 						src={kaoyaMp3}
-						className="bgm"
+						className="cVoice"
 					  listenInterval={20}
 						onListen={(passed)=>{
 							this.onHandleListen(passed, data[this.props.roles].checkPoint);
 						}}
 						onEnded={()=>{
 							this.setState({boolSwitch: true, index: 0, playEnd: true});
+						}}
+						onCanPlay={()=>{
+							alert(1)
+							this.setState({ cvCanPlay: true });
+						}}
+					/>
+					<ReactAudioPlayer
+						ref={(element)=>{ this.rap2 = element; }}
+						src={bgm}
+						className="bgm"
+						listenInterval={1000}
+						onListen={(passed)=>{
+							this.setState({ pointBgm: parseInt(passed) });
+						}}
+						loop={true}
+						onCanPlay={()=>{
+							alert(2)
+							this.setState({ bgmCanPlay: true });
 						}}
 					/>
 					{/*
@@ -253,6 +284,7 @@ class index extends Component{
 					null
 				}
 				<div className="point">{this.state.point}</div>
+				<div className="point_2">{this.state.pointBgm}</div>
 				{
 					!window.canAutoPlay() && this.state.playEnd && this.state.isFirst ?
 					<div

@@ -191,7 +191,7 @@
 	bottom: 0;
 }
 
-.point{
+.point, .point_2{
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -202,4 +202,7 @@
 	text-align: center;
 	color: #fff;
 	background: #000;
+}
+.point_2{
+	bottom: 40px;
 }
