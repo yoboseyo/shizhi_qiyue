@@ -9,8 +9,8 @@ import bgm from '../audio/hhh.mp3';
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
 import SNOW from '../plugin/snow/js/jquery.let_it_snow';
-// import vConsole from 'vconsole';
-// new vConsole();
+import vConsole from 'vconsole';
+new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -153,8 +153,7 @@ class index extends Component{
 			index: 0,
 			boolSwitch: false,
 			boolShare: false,
-			cvCanPlay: false,
-			bgmCanPlay: false,
+			count: 0,
 			point: 0,
 			pointBgm: 0,
 			//iOS中safari使用state
@@ -165,6 +164,7 @@ class index extends Component{
 		this.onShareSwitch = this.onShareSwitch.bind(this);
 		this.onReset = this.onReset.bind(this);
 		this.onPlay = this.onPlay.bind(this);
+		this.onPause = this.onPause.bind(this);
 	}
 	onHandleListen(passed, checkPoint){
 		let nextIndex = this.state.index;
@@ -187,6 +187,7 @@ class index extends Component{
 		this.rap.audioEl.play();
 	}
 	componentDidMount(){
+		let _this = this;
 		switch(this.props.roles){
 			case 'kaoya':
 				DEMO();
@@ -202,23 +203,25 @@ class index extends Component{
 		}
 		//DEMO();
 		//LEAF();
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			_this.onPlay();
+			_this.onPause();
+		}, false);
 	}
 	onPlay(){
 		this.rap.audioEl.play();
 		this.rap2.audioEl.play();
 	}
+	onPause(){
+		this.rap.audioEl.currentTime = 0.0;
+		this.rap2.audioEl.currentTime = 0.0;
+		this.rap.audioEl.pause();
+		this.rap2.audioEl.pause();
+	}
 	render(){
-		let _this = this;
 		let data = this.state.data;
 		let role = this.props.roles;
 		let bgClass = 'main_wrapper bg_' + role;
-		console.log(this.state.cvCanPlay,this.state.bgmCanPlay,window.canAutoPlay());
-		if(this.state.cvCanPlay && this.state.bgmCanPlay && window.canAutoPlay()){
-				console.log(1111)
-				_this.rap.audioEl.play();
-				_this.rap2.audioEl.play();
-
-		}
 		return(
 			<div className={bgClass}>
 				{
@@ -243,10 +246,15 @@ class index extends Component{
 						onEnded={()=>{
 							this.setState({boolSwitch: true, index: 0, playEnd: true});
 						}}
-						onCanPlay={()=>{
-							alert(1)
-							this.setState({ cvCanPlay: true });
+						onCanPlayThrough={()=>{
+							let count = this.state.count + 1;
+							this.setState({count: count}, ()=>{
+								if(count >= 2){
+									this.onPlay();
+								}
+							})
 						}}
+
 					/>
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap2 = element; }}
@@ -257,9 +265,13 @@ class index extends Component{
 							this.setState({ pointBgm: parseInt(passed) });
 						}}
 						loop={true}
-						onCanPlay={()=>{
-							alert(2)
-							this.setState({ bgmCanPlay: true });
+						onCanPlayThrough={()=>{
+							let count = this.state.count + 1;
+							this.setState({count: count}, ()=>{
+								if(count >= 2){
+									this.onPlay();
+								}
+							})
 						}}
 					/>
 					{/*
@@ -269,7 +281,7 @@ class index extends Component{
 						this.state.boolSwitch ?
 						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
 						:
-						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} />
+						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} count={this.state.count} />
 					}
 				</div>
 				{
@@ -337,7 +349,14 @@ class SubTitle extends Component{
 				</div>
 				{
 					this.props.isFirst && !window.canAutoPlay() ?
-					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>点击屏幕开始播放</div>
+					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>{
+							this.props.count < 2 ?
+							'努力加载中...'
+							:
+							'点击屏幕开始播放'
+						}</div>
+					: this.props.count < 2 ?
+					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>努力加载中...</div>
 					:
 					null
 				}

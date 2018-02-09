@@ -69,39 +69,22 @@
             ";\rWindow Width:" + winWidth +
             ";\rWindow Height:" + winHeight
         )*/
-        let cVoice = document.getElementsByClassName('cVoice')[0];
+
+      /*  let cVoice = document.getElementsByClassName('cVoice')[0];
         let bgm = document.getElementsByClassName('bgm')[0];
+
         if(cVoice && bgm){
           if(window.canAutoPlay()){
             document.addEventListener("WeixinJSBridgeReady", function () {
-              // cVoice.play();
-              // bgm.play();
+              cVoice.play();
+              cVoice.oncanplay = function(){cVoice.pause();alert(1);cVoice.load()};
             }, false);
           }
-        }
-        // setTimeout(()=>{
-        //   $('.main_wrapper').ripples({
-      	// 		resolution: 128,
-      	// 		dropRadius: 10, //px
-      	// 		perturbance: 0.04,
-      	// 	});
-        //
-        //   setInterval(function() {
-        // 		var $el = $('.main_wrapper');
-        // 		var x = Math.random() * $el.outerWidth();
-        // 		var y = Math.random() * $el.outerHeight();
-        // 		var dropRadius = 20;
-        // 		var strength = 0.04 + Math.random() * 0.04;
-        // 		$el.ripples('drop', x, y, dropRadius, strength);
-        // 	}, 400);
-        // },5000);
+        }*/
+
 
 
       }
-      document.addEventListener('DOMContentLoaded', function () {
-
-
-      });
     </script>
   </body>
 </html>
