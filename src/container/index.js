@@ -61,7 +61,7 @@ class index extends Component{
 						'明年，院子里会有更多的猫咪吧。到那个时候，你还会来吗？',
 					],
 					line: 2,
-					lineArr: [1, 2, 1, 1],
+					lineArr: [1, 1, 2, 2],
 					checkPoint: [0, 4, 10, 18]
 				},
 				qiaokeli: {
@@ -145,7 +145,7 @@ class index extends Component{
 						'诶？我的心愿吗？呵呵，如果御侍大人的心愿会实现，那我便也得偿所愿了呢。',
 					],
 					line: 2,
-					lineArr: [1, 2, 2, 2],
+					lineArr: [1, 2, 1, 2],
 					checkPoint: [0, 6, 14, 19]
 				}
 			},
@@ -183,18 +183,27 @@ class index extends Component{
 		this.rap.audioEl.play();
 	}
 	componentDidMount(){
+		let _this = this;
 		switch(this.props.roles){
 			case 'kaoya':
 				DEMO();
 				break;
 			case 'qiudaoyu':
-				LEAF();
+				LEAF(this.props.roles);
+				break;
+			case 'tilamisu':
+				LEAF(this.props.roles);
 				break;
 			case 'xiaolongxia':
 				SNOW(window.jQuery);
 				break;
 			default:
 				break;
+		}
+		if(window.isWeChat()){
+			document.addEventListener("WeixinJSBridgeReady", function () {
+				_this.rap.audioEl.play();
+			}, false);
 		}
 		//DEMO();
 		//LEAF();
@@ -211,7 +220,7 @@ class index extends Component{
 				{
 					this.props.roles === 'kaoya' ?
 					<canvas id="canvas"></canvas>
-					: this.props.roles === 'qiudaoyu' ?
+					: this.props.roles === 'qiudaoyu' || this.props.roles === 'tilamisu' ?
 					<div class="falling-leaves"></div>
 					: this.props.roles === 'xiaolongxia' ?
 					<canvas className="snow"></canvas>
@@ -238,7 +247,7 @@ class index extends Component{
 						this.state.boolSwitch ?
 						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
 						:
-						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} />
+						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} lineArr={data[this.props.roles].lineArr} />
 					}
 				</div>
 				{
@@ -250,14 +259,15 @@ class index extends Component{
 						}}
 					></div>
 					:
-					null
+					<div onTouchStart={()=>{window.location.href="http://food.funtoygame.com"}} className="download">
+					</div>
 				}
 				<div className="point">{this.state.point}</div>
 				{
-					!window.canAutoPlay() && this.state.playEnd && this.state.isFirst ?
+					!window.isWeChat() && this.state.playEnd && this.state.isFirst ?
 					<div
 						onTouchStart={(e)=>{
-							if(window.canAutoPlay()){
+							if(window.isWeChat()){
 								return;
 							} else if(this.state.playEnd) {
 								this.onPlay();
@@ -299,12 +309,17 @@ class SubTitle extends Component{
 				<div ref="subTitle" className="subTitle">
 					{this.props.txtArr.map((item, index)=>{
 						return(
-							<p key={index}>{item}</p>
+							<p
+								key={index}
+								className={this.props.lineArr[index] === 1 ? 'oneline' : ''}
+							>
+								{item}
+							</p>
 						)
 					})}
 				</div>
 				{
-					this.props.isFirst && !window.canAutoPlay() ?
+					this.props.isFirst && !window.isWeChat() ?
 					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>点击屏幕开始播放</div>
 					:
 					null

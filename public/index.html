@@ -41,12 +41,12 @@
     -->
     <script>
 
-      window.canAutoPlay = ()=>{
+      window.isWeChat = ()=>{
         var ua = window.navigator.userAgent.toLowerCase();
-        if (!(ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === 'micromessenger') && window.navigator.userAgent.indexOf('iPhone') > -1) {
-          return false;
-        } else {
+        if (ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === 'micromessenger') {
           return true;
+        } else {
+          return false;
         }
       }
       window.onload = function () {
@@ -71,47 +71,9 @@
         )*/
         let audio = document.getElementsByClassName('bgm')[0];
         if(audio){
-          if(window.canAutoPlay()){
-            document.addEventListener("WeixinJSBridgeReady", function () {
-              audio.play();
-            }, false);
-          }
-          else {
 
-            /*let creatTouchstartEventAndDispatch = function  (e) {
-              let event = document.createEvent('Events');
-              event.initEvent('click', true, true);
-              document.getElementById('sub').dispatchEvent(event);
-            }
-            document.getElementById('sub').addEventListener('click', function(){
-              audio.play();
-            });
-            creatTouchstartEventAndDispatch(document);*/
-          }
         }
-        // setTimeout(()=>{
-        //   $('.main_wrapper').ripples({
-      	// 		resolution: 128,
-      	// 		dropRadius: 10, //px
-      	// 		perturbance: 0.04,
-      	// 	});
-        //
-        //   setInterval(function() {
-        // 		var $el = $('.main_wrapper');
-        // 		var x = Math.random() * $el.outerWidth();
-        // 		var y = Math.random() * $el.outerHeight();
-        // 		var dropRadius = 20;
-        // 		var strength = 0.04 + Math.random() * 0.04;
-        // 		$el.ripples('drop', x, y, dropRadius, strength);
-        // 	}, 400);
-        // },5000);
-
-
       }
-      document.addEventListener('DOMContentLoaded', function () {
-
-
-      });
     </script>
   </body>
 </html>

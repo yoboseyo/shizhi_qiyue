@@ -44,3 +44,15 @@
   background: url(5.png) no-repeat;
   background-size: 50%;
 }
+.leaf-scene .yumao_1{
+  width: 59px;
+  height: 37px;
+  background: url(img_tlms_ym1.png) no-repeat;
+  background-size: 100%;
+}
+.leaf-scene .yumao_2{
+  width: 90px;
+  height: 84px;
+  background: url(img_tlms_ym2.png) no-repeat;
+  background-size: 100%;
+}

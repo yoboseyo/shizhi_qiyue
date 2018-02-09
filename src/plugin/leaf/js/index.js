@@ -1,14 +1,14 @@
-var LEAF = ()=>{
+var LEAF = (role)=>{
   var LeafScene = function(el) {
       this.viewport = el;
       this.world = document.createElement('div');
       this.leaves = [];
 
       this.options = {
-        numLeaves: 20,
+        numLeaves: role === 'qiudaoyu' ? 20 : 10,
         wind: {
-          magnitude: 1.2,
-          maxSpeed: 12,
+          magnitude: role === 'qiudaoyu' ? 1.2 : 0.4,
+          maxSpeed: role === 'qiudaoyu' ? 12 : 4,
           duration: 300,
           start: 0,
           speed: 0
@@ -107,7 +107,12 @@ var LEAF = ()=>{
     LeafScene.prototype.init = function() {
 
       for (var i = 0; i < this.options.numLeaves; i++) {
-        var index = parseInt(Math.random() * 3, 10) + 1;
+        var index = 0;
+        if(role === 'qiudaoyu'){
+          index = parseInt(Math.random() * 3, 10) + 1;
+        } else if(role === 'tilamisu'){
+          index = parseInt(Math.random() * 2, 10) + 1;
+        }
         var leaf = {
           el: document.createElement('div'),
           x: 0,
@@ -130,18 +135,31 @@ var LEAF = ()=>{
         };
         this._resetLeaf(leaf);
         this.leaves.push(leaf);
-        switch(index){
-          case 1:
-            leaf.el.className = 'leaf_1';
-            break;
-          case 2:
-            leaf.el.className = 'leaf_2';
-            break;
-          case 3:
-            leaf.el.className = 'leaf_3';
-            break;
-          default:
-            break;
+        if(role === 'qiudaoyu'){
+          switch(index){
+            case 1:
+              leaf.el.className = 'leaf_1';
+              break;
+            case 2:
+              leaf.el.className = 'leaf_2';
+              break;
+            case 3:
+              leaf.el.className = 'leaf_3';
+              break;
+            default:
+              break;
+          }
+        } else if(role === 'tilamisu'){
+          switch(index){
+            case 1:
+              leaf.el.className = 'yumao_1';
+              break;
+            case 2:
+              leaf.el.className = 'yumao_2';
+              break;
+            default:
+              break;
+          }
         }
         this.world.appendChild(leaf.el);
       }
