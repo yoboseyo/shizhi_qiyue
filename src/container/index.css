@@ -126,10 +126,16 @@
 	height: 58px;
 	font-size: 26px;
 	line-height: 58px;
+	font-weight: bold;
 	color: #fff;
 	text-align: center;
 	background: url(../image/img_tc.png) center center no-repeat;
 	background-size: cover;
+}
+.role_name span{
+	font-size: 22px;
+	margin-left: 20px;
+	font-weight: normal;
 }
 .txt_wrapper{
 	width: 90%;

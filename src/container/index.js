@@ -4,7 +4,19 @@ import '../plugin/rain/css/style.css';
 import '../plugin/leaf/css/style.css'
 import {withRouter} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
-import kaoyaMp3 from '../audio/test.mp3';
+
+import kaoyaMp3 from '../audio/kaoya.mp3';
+import xiaolongxiaMp3 from '../audio/xiaolongxia.mp3';
+import tilamisuMp3 from '../audio/tilamisu.mp3';
+import zhutongfanMp3 from '../audio/zhutongfan.mp3';
+import qiaokeliMp3 from '../audio/qiaokeli.mp3';
+import qiudaoyuMp3 from '../audio/qiudaoyu.mp3';
+import eganMp3 from '../audio/egan.mp3';
+import futejiaMp3 from '../audio/futejia.mp3';
+import yunwuMp3 from '../audio/yunwu.mp3';
+import cuyuMp3 from '../audio/cuyu.mp3';
+import guilinggaoMp3 from '../audio/guilinggao.mp3';
+
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
 import SNOW from '../plugin/snow/js/jquery.let_it_snow';
@@ -17,7 +29,8 @@ class index extends Component{
 		this.state = {
 			data: {
 				kaoya: {
-					roleName: '北京烤鸭',
+					roleName: '北京烤鸭',  //done
+					cv: '(CV:夏磊)',
 					txt: [
 						'请原谅我那么晚还来叨扰，只是有几句话想当面对您说。',
 						'听闻新年是与重要之人一起度过的节日。所以我想着今天一定要来见您一面。',
@@ -26,22 +39,24 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [2, 2, 1, 2],
-					checkPoint: [0, 6, 15, 20]
+					checkPoint: [0, 9.5, 18.5, 25]
 				},
 				xiaolongxia: {
-					roleName: '麻辣小龙虾',
+					roleName: '麻辣小龙虾',  //done
+					cv: '(CV:阿杰)',
 					txt: [
 						'这里吵死了，喂，我们走快一点吧？',
 						'危险！待在我身后！',
-						'以后没有我的允许，不准乱跑！也不准离开我的视线！',
+						'以后没有我的允许，不准乱跑！<br/>也不准离开我的视线！',
 						'你这样会让人有机可乘的，笨蛋，跟我回家！',
 					],
-					line: 1,
-					lineArr: [],
-					checkPoint: [0, 5, 8, 14]
+					line: 2,
+					lineArr: [1, 1, 2, 1],
+					checkPoint: [0, 5, 10, 17]
 				},
 				zhutongfan: {
-					roleName: '竹筒饭',
+					roleName: '竹筒饭',  //done
+					cv: '(CV:谢添天)',
 					txt: [
 						'啊！御侍你看！那朵烟花比这朵还大！好神奇啊……',
 						'可以许愿的话……那我希望御侍以后只和我一个人说话！不可以和别人！',
@@ -50,10 +65,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2, 1, 1],
-					checkPoint: [0, 7, 16, 22]
+					checkPoint: [0, 10, 20, 28]
 				},
 				qiudaoyu: {
-					roleName: '秋刀鱼',
+					roleName: '秋刀鱼',  //done
+					cv: '(CV:王梓)',
 					txt: [
 						'好巧，你也在这里。',
 						'这只猫咪好像很喜欢你的样子。',
@@ -62,10 +78,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 1, 2, 2],
-					checkPoint: [0, 4, 10, 18]
+					checkPoint: [0, 4, 9.5, 19]
 				},
 				qiaokeli: {
-					roleName: '巧克力',
+					roleName: '巧克力',  //done
+					cv: '(CV:夏磊)',
 					txt: [
 						'笑得这么开心？我就当——是因为我了。还冷吗？',
 						'你问我有没有想你？ 嗯……你说呢？',
@@ -74,10 +91,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 1, 1, 2],
-					checkPoint: [0, 6, 10, 15]
+					checkPoint: [0, 8.5, 15, 26]
 				},
 				guilinggao: {
 					roleName: '龟苓膏',
+					cv: '(CV:吴磊)',
 					txt: [
 						'怎么了，回家的东西还没有整理好吗？',
 						'这有什么可害怕的？真是……拿你没办法。',
@@ -86,10 +104,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 1, 1, 2],
-					checkPoint: [0, 5, 10, 14]
+					checkPoint: [0, 6, 12, 15]
 				},
 				yunwu: {
-					roleName: '庐山云雾',
+					roleName: '庐山云雾',  //done
+					cv: '(CV:冯骏骅)',
 					txt: [
 						'世事茫茫，光阴有限，算来何必奔忙。',
 						'山下的新年烟火虽美……但……不及在山涧，与你朝夕相对。',
@@ -98,10 +117,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2, 1, 2],
-					checkPoint: [0, 5, 13, 19]
+					checkPoint: [0, 8, 18, 27]
 				},
 				cuyu: {
-					roleName: '西湖醋鱼',
+					roleName: '西湖醋鱼',  //done
+					cv: '(CV:杨鸥)',
 					txt: [
 						'长久以来，此处只有小女子一人，今日有幸能盼来您的到访，心中不甚欢喜。',
 						'您口中的新年，是何人？小女子从未听闻过。',
@@ -110,10 +130,11 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [2, 1, 2, 2],
-					checkPoint: [0, 9, 17, 25]
+					checkPoint: [0, 12, 17, 28]
 				},
 				egan: {
-					roleName: '法式鹅肝',
+					roleName: '法式鹅肝',  //done
+					cv: '(CV:醋醋)',
 					txt: [
 						'是你……开始签订契约吧。',
 						'这是，命运的安排。',
@@ -125,7 +146,8 @@ class index extends Component{
 					checkPoint: [0, 5, 9, 15]
 				},
 				futejia: {
-					roleName: '伏特加',
+					roleName: '伏特加',  //done
+					cv: '(CV:陈奕雯)',
 					txt: [
 						'下雪了，要不要来一杯？',
 						'你要是喝醉的话，我可不负责送你回家。',
@@ -134,10 +156,11 @@ class index extends Component{
 					],
 					line: 1,
 					lineArr: [],
-					checkPoint: [0, 5, 11, 17]
+					checkPoint: [2, 5, 10, 16]
 				},
 				tilamisu: {
-					roleName: '提拉米苏',
+					roleName: '提拉米苏',  //done
+					cv: '(CV:夏一可)',
 					txt: [
 						'欢迎回来，御侍大人，年夜饭已经准备好了哦。',
 						'今夜是阖家团圆的时刻呢，能和御侍大人在一起，我真的很开心。',
@@ -146,7 +169,7 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2, 1, 2],
-					checkPoint: [0, 6, 14, 19]
+					checkPoint: [0, 5, 14, 20]
 				}
 			},
 			index: 0,
@@ -205,8 +228,6 @@ class index extends Component{
 				_this.rap.audioEl.play();
 			}, false);
 		}
-		//DEMO();
-		//LEAF();
 	}
 	onPlay(){
 		this.rap.audioEl.play();
@@ -221,7 +242,7 @@ class index extends Component{
 					this.props.roles === 'kaoya' ?
 					<canvas id="canvas"></canvas>
 					: this.props.roles === 'qiudaoyu' || this.props.roles === 'tilamisu' ?
-					<div class="falling-leaves"></div>
+					<div className="falling-leaves"></div>
 					: this.props.roles === 'xiaolongxia' ?
 					<canvas className="snow"></canvas>
 					:
@@ -230,7 +251,32 @@ class index extends Component{
 				<div className={this.state.boolSwitch ? 'shade shade_wrapper_2' : 'shade shade_wrapper_1'}>
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap = element; }}
-						src={kaoyaMp3}
+						src={
+							role === 'xiaolongxia' ?
+							xiaolongxiaMp3
+							: role === 'tilamisu' ?
+							tilamisuMp3
+							: role === 'kaoya' ?
+							kaoyaMp3
+							: role === 'zhutongfan' ?
+							zhutongfanMp3
+							: role === 'qiaokeli' ?
+							qiaokeliMp3
+							: role === 'qiudaoyu' ?
+							qiudaoyuMp3
+							: role === 'egan' ?
+							eganMp3
+							: role === 'futejia' ?
+							futejiaMp3
+							: role === 'yunwu' ?
+							yunwuMp3
+							: role === 'cuyu' ?
+							cuyuMp3
+							: role === 'guilinggao' ?
+							guilinggaoMp3
+							:
+							null
+						}
 						className="bgm"
 					  listenInterval={20}
 						onListen={(passed)=>{
@@ -245,7 +291,7 @@ class index extends Component{
 					*/}
 					{
 						this.state.boolSwitch ?
-						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
+						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} cv={data[this.props.roles].cv} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
 						:
 						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} lineArr={data[this.props.roles].lineArr} />
 					}
@@ -312,8 +358,8 @@ class SubTitle extends Component{
 							<p
 								key={index}
 								className={this.props.lineArr[index] === 1 ? 'oneline' : ''}
+								dangerouslySetInnerHTML={{ __html: item}}
 							>
-								{item}
 							</p>
 						)
 					})}
@@ -357,11 +403,12 @@ class EndPart extends Component{
 			<div className="endPart_wrapper fadeIn">
 				<div className="role_name">
 					{this.props.roleName}
+					<span>{this.props.cv}</span>
 				</div>
 				<div className="txt_wrapper">
 					{this.props.txtArr.map((item, index)=>{
 						return(
-							<p key={index}>{item}</p>
+							<p key={index} dangerouslySetInnerHTML={{ __html: item}}></p>
 						)
 					})}
 				</div>
