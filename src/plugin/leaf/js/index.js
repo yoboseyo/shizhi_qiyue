@@ -5,10 +5,10 @@ var LEAF = (role)=>{
       this.leaves = [];
 
       this.options = {
-        numLeaves: role === 'qiudaoyu' ? 20 : 10,
+        numLeaves: role === 'qiudaoyu' || role === 'zhutongfan' ? 20 : 10,
         wind: {
-          magnitude: role === 'qiudaoyu' ? 1.2 : 0.4,
-          maxSpeed: role === 'qiudaoyu' ? 12 : 4,
+          magnitude: role === 'qiudaoyu' || role === 'zhutongfan' ? 1.2 : 0.4,
+          maxSpeed: role === 'qiudaoyu' || role === 'zhutongfan' ? 12 : 4,
           duration: 300,
           start: 0,
           speed: 0
@@ -110,7 +110,7 @@ var LEAF = (role)=>{
         var index = 0;
         if(role === 'qiudaoyu'){
           index = parseInt(Math.random() * 3, 10) + 1;
-        } else if(role === 'tilamisu'){
+        } else if(role === 'tilamisu' || role === 'zhutongfan'){
           index = parseInt(Math.random() * 2, 10) + 1;
         }
         var leaf = {
@@ -156,6 +156,17 @@ var LEAF = (role)=>{
               break;
             case 2:
               leaf.el.className = 'yumao_2';
+              break;
+            default:
+              break;
+          }
+        } else if(role === 'zhutongfan'){
+          switch(index){
+            case 1:
+              leaf.el.className = 'zhuye_1';
+              break;
+            case 2:
+              leaf.el.className = 'zhuye_2';
               break;
             default:
               break;

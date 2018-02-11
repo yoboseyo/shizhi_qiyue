@@ -56,3 +56,15 @@
   background: url(img_tlms_ym2.png) no-repeat;
   background-size: 100%;
 }
+.leaf-scene .zhuye_1{
+  width: 116px;
+  height: 106px;
+  background: url(zhuye_01.png) no-repeat;
+  background-size: 100%;
+}
+.leaf-scene .zhuye_2{
+  width: 112px;
+  height: 95px;
+  background: url(zhuye_02.png) no-repeat;
+  background-size: 100%;
+}

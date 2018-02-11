@@ -208,6 +208,9 @@ class index extends Component{
 			case 'tilamisu':
 				LEAF(this.props.roles);
 				break;
+			case 'zhutongfan':
+				LEAF(this.props.roles);
+				break;
 			case 'xiaolongxia':
 				SNOW(window.jQuery);
 				break;
@@ -232,7 +235,7 @@ class index extends Component{
 				{
 					this.props.roles === 'kaoya' ?
 					<canvas id="canvas"></canvas>
-					: this.props.roles === 'qiudaoyu' || this.props.roles === 'tilamisu' ?
+					: this.props.roles === 'qiudaoyu' || this.props.roles === 'tilamisu' || this.props.roles === 'zhutongfan' ?
 					<div className="falling-leaves"></div>
 					: this.props.roles === 'xiaolongxia' ?
 					<canvas className="snow"></canvas>
