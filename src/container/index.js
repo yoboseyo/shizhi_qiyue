@@ -20,8 +20,8 @@ import guilinggaoMp3 from '../audio/guilinggao.mp3';
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
 import SNOW from '../plugin/snow/js/jquery.let_it_snow';
-import vConsole from 'vconsole';
-new vConsole();
+//import vConsole from 'vconsole';
+//new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -299,7 +299,7 @@ class index extends Component{
 					<div onTouchStart={()=>{window.location.href="http://food.funtoygame.com"}} className="download">
 					</div>
 				}
-				<div className="point">{this.state.point}</div>
+				{/*<div className="point">{this.state.point}</div>*/}
 				{
 					!window.isWeChat() && this.state.playEnd && this.state.isFirst ?
 					<div
