@@ -328,9 +328,6 @@ class SubTitle extends Component{
 			length: props.txtArr.length
 		};
 	}
-	componentDidMount(){
-
-	}
 	componentWillReceiveProps(nextProps){
 		if(nextProps.index > this.props.index || nextProps.index === 0){
 			// this.setState({
