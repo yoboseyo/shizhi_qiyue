@@ -138,17 +138,6 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
-          //mp3
-
-          {
-            test: /\.mp3$/,
-            include: 'src',
-            loader: 'file-loader',
-            options: {
-              limit: 10000000,
-              name: 'static/media/[name].[hash:8].[ext]',
-            }
-          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
@@ -198,9 +187,9 @@ module.exports = {
                     require("postcss-write-svg")({ utf8: false }),
                     require("postcss-cssnext"),
                     require("postcss-px-to-viewport")({
-                        viewportWidth: 640,
-                        viewportHeight: 1136,
-                        unitPrecision: 3,
+                        viewportWidth: 1920,
+                        viewportHeight: 1080,
+                        unitPrecision: 1,
                         viewportUnit: 'vw',
                         selectorBlackList: ['.ignore', '.hairlines'],
                         minPixelValue: 1,

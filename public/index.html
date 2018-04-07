@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="theme-color" content="#000000">
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -10,7 +9,6 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -37,27 +35,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-      window.onload = function () {
-        window.viewportUnitsBuggyfill.init({
-          hacks: window.viewportUnitsBuggyfillHacks
-        });
-
-        var winDPI = window.devicePixelRatio;
-            var uAgent = window.navigator.userAgent;
-            var screenHeight = window.screen.height;
-            var screenWidth = window.screen.width;
-            var winWidth = window.innerWidth;
-            var winHeight = window.innerHeight;
-            // alert(
-            //     "Windows DPI:" + winDPI +
-            //     ";\ruAgent:" + uAgent +
-            //     ";\rScreen Width:" + screenWidth +
-            //     ";\rScreen Height:" + screenHeight +
-            //     ";\rWindow Width:" + winWidth +
-            //     ";\rWindow Height:" + winHeight
-            // )
-      }
-    </script>
   </body>
 </html>

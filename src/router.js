@@ -9,7 +9,7 @@ class Routes extends Component {
 	render(){
 		return(
 			<Router>
-				<Route path='/kaoya' component={Index} />
+				<Route path='/index' component={Index} />
 			</Router>
 		)
 	}
