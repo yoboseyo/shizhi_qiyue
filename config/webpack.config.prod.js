@@ -188,24 +188,39 @@ module.exports = {
                     {
                       loader: require.resolve('postcss-loader'),
                       options: {
-                        config: {
-                          path: 'postcss.config.js'
-                        },
                         // Necessary for external CSS imports to work
                         // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
-                        // plugins: () => [
-                        //   require('postcss-flexbugs-fixes'),
-                        //   autoprefixer({
-                        //     browsers: [
-                        //       '>1%',
-                        //       'last 4 versions',
-                        //       'Firefox ESR',
-                        //       'not ie < 9', // React doesn't support IE8 anyway
-                        //     ],
-                        //     flexbox: 'no-2009',
-                        //   }),
-                        // ],
+                        plugins: () => [
+                          require('postcss-flexbugs-fixes'),
+                          require("autoprefixer")({
+                              browsers: [
+                                  '>1%',
+                                  'last 4 versions',
+                                  'Firefox ESR',
+                                  'not ie < 9', // React doesn't support IE8 anyway
+                              ],
+                              flexbox: 'no-2009',
+                          }),
+                          require("postcss-aspect-ratio-mini"),
+                          require("postcss-write-svg")({ utf8: false }),
+                          require("postcss-cssnext"),
+                          require("postcss-px-to-viewport")({
+                              viewportWidth: 1920,
+                              viewportHeight: 1080,
+                              unitPrecision: 1,
+                              viewportUnit: 'vw',
+                              selectorBlackList: ['.ignore', '.hairlines'],
+                              minPixelValue: 1,
+                              mediaQuery: false
+                          }),
+                          require("postcss-viewport-units"),
+                          require("cssnano")({
+                              preset: "advanced",
+                              autoprefixer: false,
+                              "postcss-zindex": false
+                          })
+                        ],
                       },
                     },
                   ],
