@@ -11,8 +11,8 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <script src="%PUBLIC_URL%/extra/jquery.min.js"></script>
+    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="%PUBLIC_URL%/extra/jquery.min.js"></script> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,7 +22,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>食之契约</title>
+    <title></title>
   </head>
   <body>
     <noscript>
@@ -41,14 +41,14 @@
     -->
     <script>
 
-      window.isWeChat = ()=>{
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === 'micromessenger') {
-          return true;
-        } else {
-          return false;
-        }
-      }
+      // window.isWeChat = ()=>{
+      //   var ua = window.navigator.userAgent.toLowerCase();
+      //   if (ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === 'micromessenger') {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // }
       window.onload = function () {
 
         window.viewportUnitsBuggyfill.init({

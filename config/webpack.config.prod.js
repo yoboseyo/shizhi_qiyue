@@ -218,8 +218,8 @@ module.exports = {
                           require("postcss-write-svg")({ utf8: false }),
                           require("postcss-cssnext"),
                           require("postcss-px-to-viewport")({
-                              viewportWidth: 640,
-                              viewportHeight: 1136,
+                              viewportWidth: 750,
+                              viewportHeight: 1334,
                               unitPrecision: 3,
                               viewportUnit: 'vw',
                               selectorBlackList: ['.ignore', '.hairlines'],

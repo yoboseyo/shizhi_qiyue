@@ -1,0 +1,156 @@
+.knowMore-page{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: url('../image/bg.png') center bottom no-repeat;
+	background-size: cover;
+}
+.knowMore-page .header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 102px;
+	padding: 0 13px 0 25px;
+	background: #F2B219;
+}
+.knowMore-page .header .logo{
+	width: 128px;
+	height: 56px;
+	background: url('../image/logo.png') center no-repeat;
+	background-size: cover;
+}
+.knowMore-page .header .slogan{
+	height:32px;
+	font-size:32px;
+	color: #fff;
+	line-height: 30px;
+}
+.knowMore-page .header a{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 201px;
+	height: 55px;
+	padding: 0 28px 0 32px;
+	border: 4px solid #fff;
+	border-radius: 26px;
+	font-size: 28px;
+	line-height: 30px;
+	color: #fff;
+}
+.knowMore-page .header a .icon-arrow-right{
+	width: 15px;
+	height: 26px;
+	background: url('../image/arrow-right.png') center no-repeat;
+	background-size: cover;
+}
+.knowMore-page .content{
+	padding: 48px 21px 0 29px;
+}
+.knowMore-page .content .content-header,
+.knowMore-page .content .content-header .text-wrap .main{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.knowMore-page .content .content-header .text-wrap .main .host-name{
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.knowMore-page .content .content-header .avatar-wrap{
+	width: 92px;
+	height: 92px;
+	margin-right: 21px;
+	border-radius: 50%;
+	overflow: hidden;
+	background: #eee;
+}
+.knowMore-page .content .content-header .avatar-wrap img{
+	width: 100%;
+	height: 100%;
+}
+.knowMore-page .content .content-header .text-wrap .main{
+	margin-bottom: 28px;
+	font-size: 30px;
+	line-height: 30px;
+	color: #666;
+}
+.knowMore-page .content .content-header .text-wrap .main .petInfo{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	min-width: 239px;
+	height: 35px;
+	padding-right: 22px;
+	margin-left: 26px;
+	border-radius: 18px;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 35px;
+	color: #333;
+}
+.knowMore-page .content .content-header .text-wrap .main .petInfo .petAvatar-wrap{
+	width: 33px;
+	height: 33px;
+	margin-right: 10px;
+	overflow: hidden;
+	border-radius: 50%;
+	background: #eee;
+}
+.knowMore-page .content .content-header .text-wrap .main .petInfo .petAvatar-wrap img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.knowMore-page .content .content-header .text-wrap .main .petInfo span.nick-name{
+	margin: 0 12px;
+}
+.knowMore-page .content .content-header .text-wrap .intro{
+	width: 585px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 28px;
+	line-height: 28px;
+	color: #333;
+}
+.knowMore-page .content .img-list{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding-left: 115px;
+	padding-bottom: 20px;
+	margin-top: 19px;
+}
+.knowMore-page .content .img-list li{
+	width: 177px;
+	height: 133px;
+	overflow: hidden;
+	margin-right: 27px;
+	margin-bottom: 22px;
+	background: #eee;
+}
+.knowMore-page .content .img-list li:nth-child(3n){
+	margin-right: 0;
+}
+.knowMore-page .content .img-list li img{
+	width: 100%;
+	height: 100%;
+}
+.knowMore-page .content .post-time{
+	margin-bottom: 40px;
+	color: #7e7e7e;
+	font-size: 22px;
+	line-height: 24px;
+	padding-left: 115px;
+}
+.knowMore-page .content .dec-line{
+	width: 658px;
+	margin: 0 auto;
+	border-bottom: 1px solid #e1e1e1;
+}

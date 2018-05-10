@@ -6,7 +6,7 @@ html,body{
 	height: 100%;
 	overflow: auto;
 }
-html,body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{
+html,body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input,a{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
