@@ -60,7 +60,7 @@ class KnowMore extends Component {
 							this.state.imgArr.map((item, index) => {
 								return (
 									<div key={index}>
-										<img src={window.location.host + item} alt="" />
+										<img src={item} alt="" />
 									</div>
 								)
 							})

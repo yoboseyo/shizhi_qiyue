@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import './index.css';
+import Zmage from 'react-zmage';
 import moment from 'moment';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -14,10 +15,19 @@ class Index extends Component {
 		this.getShareDiary = this.getShareDiary.bind(this);
 	}
 	getShareDiary () {
-		let url = window.location.href;
-		let arr = url.split('/');
-		let id = arr[arr.length -1];
-		fetch('http://ip-28-hanvet-app.coralcodes.com/common/getShareDiary/' + id, {
+		function getQueryString (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+		// let url = window.location.href;
+		// // let url = 'http://ip-28-hanvet-app.coralcodes.com/common/getShareDiary/Index.html?id=10'
+		// let arr = url.split('?');
+		// arr = arr[arr.length - 1].split('=');
+		let id = getQueryString('id');
+		console.log(window.location.host)
+		fetch('http://' + window.location.host + '/common/getShareDiary/' + id, {
 			method: 'GET',
 		}).then(response => {
       if (response.status >= 400) {
@@ -39,7 +49,9 @@ class Index extends Component {
 		this.getShareDiary();
 	}
 	render () {
-		let data = this.state.data;
+		const data = this.state.data;
+		// const url = 'http://' + window.location.host
+		// console.log(url)
 		return (
 			<div className="knowMore-page">
 				{
@@ -53,17 +65,17 @@ class Index extends Component {
 						<div className="content">
 							<div className="content-header">
 								<div className="avatar-wrap">
-									<img src={data.userImage ? data.userImage : ''} alt={data.username ? data.username : ''}></img>
+									<img src={data.userImage ? data.userImage : ''} alt={data.userName ? data.userName : ''} />
 								</div>
 								<div className="text-wrap">
 									<div className="main">
-										<p className="host-name">{data.username ? data.username : ''}</p>
+										<p className="host-name">{data.userName ? data.userName : ''}</p>
 										<ul className="petInfo">
 											{
 												data.userPets.length ? data.userPets.map((item, index) => {
 													return(
-														<li className="petAvatar-wrap" key="index">
-															<img src={item.itemimageUrl ? item.imageUrl : ''} alt={item.name ? item.name : ''}></img>
+														<li className="petAvatar-wrap" key={index}>
+															<img src={item.imageUrl ? item.imageUrl : ''} alt={item.name ? item.name : ''} />
 														</li>
 													)
 												})
@@ -80,7 +92,14 @@ class Index extends Component {
 									data.phones ? data.phones.map((item, index) => {
 										return(
 											<li key={index}>
-												<img src={item} alt="" />
+												<Zmage
+													src={item}
+													alt=""
+													controller={{
+														close: true,
+												    zoom: false,
+												    pagination: false
+													}} />
 											</li>
 										)
 									})

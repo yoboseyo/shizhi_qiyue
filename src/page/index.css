@@ -5,6 +5,9 @@
 	background: url('../image/bg.png') center bottom no-repeat;
 	background-size: cover;
 }
+.knowMore-page img{
+	display: block;
+}
 .knowMore-page .header{
 	display: flex;
 	flex-direction: row;
@@ -128,19 +131,21 @@
 	margin-top: 19px;
 }
 .knowMore-page .content .img-list li{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	width: 177px;
 	height: 133px;
 	overflow: hidden;
 	margin-right: 27px;
 	margin-bottom: 22px;
-	background: #eee;
+	background: #000;
 }
 .knowMore-page .content .img-list li:nth-child(3n){
 	margin-right: 0;
 }
 .knowMore-page .content .img-list li img{
 	width: 100%;
-	height: 100%;
 }
 .knowMore-page .content .post-time{
 	margin-bottom: 40px;

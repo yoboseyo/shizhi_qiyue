@@ -11,13 +11,13 @@ class Routes extends Component {
 		return(
 			<Router>
 				<div style={{height: '100%'}}>
-					<Route exact path='/:id' render={()=>{
-								document.title = '';
+					<Route exact path='/index.html' render={()=>{
+								document.title = '嗨汪';
 								return (<Index />)
 							}}
 						/>
 					<Route path='/knowmore' render={()=>{
-							document.title = '';
+							document.title = '嗨汪';
 							return (<KnowMore />)
 						}}
 					/>
