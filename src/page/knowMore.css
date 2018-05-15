@@ -1,7 +1,9 @@
+@import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 .index-page .swipe-wrap{
 	position: relative;
 	width: 100%;
 	height: 656px;
+	overflow: hidden;
 }
 .index-page .swipe-wrap img{
 	width: 100%;

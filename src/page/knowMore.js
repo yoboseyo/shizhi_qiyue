@@ -7,6 +7,8 @@ import banner_2 from '../image/banner_2.jpg';
 import banner_3 from '../image/banner_3.jpg';
 import banner_4 from '../image/banner_4.jpg';
 import app_icon from '../image/app_icon.png';
+import vConsole from 'vconsole';
+new vConsole();
 
 class KnowMore extends Component {
 	constructor () {
@@ -86,11 +88,11 @@ class KnowMore extends Component {
 							安卓端下载
 							<span className="icon-down"></span>
 						</Link>
-						<Link to="https://itunes.apple.com/cn/app/%E5%97%A8%E6%B1%AA/id1361036651?mt=8">
+						<a href="https://itunes.apple.com/cn/app/%E5%97%A8%E6%B1%AA/id1361036651">
 							<span className="icon-ios"></span>
 							IOS端下载
 							<span className="icon-down"></span>
-						</Link>
+						</a>
 					</div>
 				</div>
 				<div className="slogan"></div>
