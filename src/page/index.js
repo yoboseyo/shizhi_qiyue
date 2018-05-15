@@ -60,7 +60,7 @@ class Index extends Component {
 						<div className="header">
 							<span className="logo"></span>
 							<span className="slogan">养宠，一个APP就够了</span>
-							<Link to="/learnmore.html">了解一下<span className="icon-arrow-right"></span></Link>
+							<a href={'http://' + window.location.host + '/learnmore.html'}>了解一下<span className="icon-arrow-right"></span></a>
 						</div>
 						<div className="content">
 							<div className="content-header">
