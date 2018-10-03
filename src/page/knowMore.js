@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import ReactSwipe from 'react-swipe';
 import './knowMore.css';
-import banner_1 from '../image/banner_1.jpg';
-import banner_2 from '../image/banner_2.jpg';
-import banner_3 from '../image/banner_3.jpg';
-import banner_4 from '../image/banner_4.jpg';
+import banner_1 from '../image/bannerone1.png';
+import banner_2 from '../image/bannertwo.jpg';
+import banner_3 from '../image/bannerthree.jpg';
+import banner_4 from '../image/bannerfour.jpg';
 import app_icon from '../image/app_icon.png';
 import vConsole from 'vconsole';
 new vConsole();
@@ -58,15 +58,18 @@ class KnowMore extends Component {
 							  transitionProperty: 'transform'
 						  }
 						}}>
-						{
-							this.state.imgArr.map((item, index) => {
-								return (
-									<div key={index}>
-										<img src={window.location.origin + item} alt="" />
-									</div>
-								)
-							})
-						}
+						<div>
+							<img src={banner_1} alt="" />
+						</div>
+						<div>
+							<img src={banner_2} alt="" />
+						</div>
+						<div>
+							<img src={banner_3} alt="" />
+						</div>
+						<div>
+							<img src={banner_3} alt="" />
+						</div>
           </ReactSwipe>
 					<div className="swipe-indicator">
 						{

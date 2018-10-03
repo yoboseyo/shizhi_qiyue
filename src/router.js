@@ -25,6 +25,14 @@ class Routes extends Component {
 								return (<Index />)
 							}}
 						/>
+					<Route exact path='/learnmore.html' render={()=>{
+								// if(prev !== 'index'){
+								// 	localStorage.setItem('prev', 'index');
+								// 	window.location.href = window.location.href;
+								// }
+								return (<KnowMore />)
+							}}
+						/>
 				</div>
 			</Router>
 		)

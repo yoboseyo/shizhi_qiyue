@@ -138,15 +138,6 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
-          //mp3
-          {
-            test: /\.mp3$/,
-            loader: 'file-loader',
-            options: {
-              limit: 10000000,
-              name: 'static/media/[name].[hash:8].[ext]',
-            }
-          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
