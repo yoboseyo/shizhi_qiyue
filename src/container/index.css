@@ -87,7 +87,7 @@
 	transition: .8s ease;
 }
 .subTitle p{
-	width: 90%;
+	width: 98%;
 	margin: 0 auto;
 	vertical-align: middle;
 }
@@ -151,7 +151,9 @@
 .btn_wrapper{
 	text-align: center;
 }
-.btn_wrapper span, .btn_wrapper div{
+.btn_wrapper span,
+.btn_wrapper a,
+.btn_wrapper div{
 	display: inline-block;
 	width: 226px;
 	height: 60px;

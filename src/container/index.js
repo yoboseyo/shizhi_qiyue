@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import '../plugin/rain/css/style.css';
 import '../plugin/leaf/css/style.css'
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 
 import kaoyaMp3 from '../audio/kaoya.mp3';
@@ -29,147 +29,136 @@ class index extends Component{
 		this.state = {
 			data: {
 				kaoya: {
-					roleName: '北京烤鸭',  //done
-					cv: '(CV:夏磊)',
+					roleName: '北京ダック',  //done
+					cv: '(CV:日野聡)',
 					txt: [
-						'请原谅我那么晚还来叨扰，只是有几句话想当面对您说。',
-						'听闻新年是与重要之人一起度过的节日。所以我想着今天一定要来见您一面。',
-						'明日的夜晚，您会和我一同度过的吧？',
-						'我会准备好和新年相配的烟花与佳肴，在约定之地等待您的到来。'
+						'お帰りなさいませ。',
+						'御侍様がおられぬ間、この子らがいささかも落ち着きませんでした。つられて吾まで、とぼついてしまいました。',
 					],
 					line: 2,
-					lineArr: [2, 2, 1, 2],
-					checkPoint: [0, 7, 17.5, 23.5]
+					lineArr: [1, 2],
+					checkPoint: [7, 9]
 				},
 				xiaolongxia: {
-					roleName: '麻辣小龙虾',  //done
-					cv: '(CV:阿杰)',
+					roleName: '麻辣ザリガニ',  //done
+					cv: '(CV:江口拓也)',
 					txt: [
-						'你这样会让人有机可乘的，笨蛋，跟我回家！',
-						'以后没有我的允许，不准乱跑！<br/>也不准离开我的视线！'
+						'やっと帰ったか？遅い！言っただろう、あっちこっちうろつくんじゃない！',
+						'てめぇを苛めていいのは俺様だけだ、だから俺様の見えない所に隠れるんじゃない。'
 					],
 					line: 2,
-					lineArr: [1, 2],
-					checkPoint: [0, 7]
+					lineArr: [2, 2],
+					checkPoint: [1, 10]
 				},
 				zhutongfan: {
-					roleName: '竹筒饭',  //done
-					cv: '(CV:谢添天)',
+					roleName: '竹飯',  //done
+					cv: '(CV:鈴木達央)',
 					txt: [
-						'啊！御侍你看！那朵烟花比这朵还大！好神奇啊……',
-						'可以许愿的话……那我希望御侍以后只和我一个人说话！不可以和别人！'
+						'このまま俺様のそばにいてくれりゃいいんだよ！',
+					],
+					line: 1,
+					lineArr: [],
+					checkPoint: [3]
+				},
+				qiudaoyu: {
+					roleName: 'さんまの塩焼き',  //done
+					cv: '(CV:日野聡)',
+					txt: [
+						'足元に気をつけて、僕の友達がそこにいる…',
+						'あれ？どうやら君のことを気に入ったみたい。',
+						'ニャンたちは、とても賢い……だから、大事にしてあげて。',
+					],
+					line: 2,
+					lineArr: [1, 1, 2],
+					checkPoint: [0.5, 7, 14]
+				},
+				qiaokeli: {
+					roleName: 'チョコレート',  //done
+					cv: '(CV:興津和幸)',
+					txt: [
+						'もし君にこのバラを贈ったら、受け取ってくれる？',
+						'フフ、どうしたの？顔真っ赤だよ。本当に、可愛い。',
+					],
+					line: 1,
+					lineArr: [],
+					checkPoint: [1, 6]
+				},
+				guilinggao: {
+					roleName: '亀苓膏',
+					cv: '(CV:寺島拓篤)',
+					txt: [
+						'御侍、店を開いている以上、掃除を怠ってはならない。',
+						'清潔感のない店に誰が来たいと思うんだ？やれやれ、私がやっておいてやる。',
 					],
 					line: 2,
 					lineArr: [1, 2],
-					checkPoint: [0, 9]
-				},
-				qiudaoyu: {
-					roleName: '秋刀鱼',  //done
-					cv: '(CV:王梓)',
-					txt: [
-						'好巧，你也在这里。',
-						'这只猫咪好像很喜欢你的样子。',
-						'明年，院子里会有更多的猫咪吧。到那个时候，你还会来吗？'
-					],
-					line: 2,
-					lineArr: [1, 1, 2],
-					checkPoint: [0, 4, 10]
-				},
-				qiaokeli: {
-					roleName: '巧克力',  //done
-					cv: '(CV:夏磊)',
-					txt: [
-						'笑得这么开心？我就当——是因为我了。',
-						'还冷吗？你问我有没有想你？ 嗯……你说呢？',
-						'新的一年里，我希望每天都能看到你的笑脸，你会帮我实现愿望的，对吗？'
-					],
-					line: 2,
-					lineArr: [1, 1, 2],
-					checkPoint: [0, 7, 16]
-				},
-				guilinggao: {
-					roleName: '龟苓膏',
-					cv: '(CV:吴磊)',
-					txt: [
-						'怎么了，回家的东西还没有整理好吗？',
-						'这有什么可害怕的？真是……拿你没办法。',
-						'我来给你收拾行李，别害怕了。这样，是不是会让你好受一些？'
-					],
-					line: 2,
-					lineArr: [1, 1, 2],
-					checkPoint: [0, 4, 12]
+					checkPoint: [2, 8.5]
 				},
 				yunwu: {
 					roleName: '庐山云雾',  //done
 					cv: '(CV:冯骏骅)',
 					txt: [
-						'世事茫茫，光阴有限，算来何必奔忙。',
-						'山下的新年烟火虽美……但……不及在山涧，与你朝夕相对。',
-						'呵……何需惊讶？……来，这杯茶给你。',
-						'愿来年的此刻，你也会来到这幽幽山间，与我一同迎接新岁的到来。'
+						'霧と香りに包まれしこの最果の地に、こうしてそなたと出会いしこと、これ全て「縁」の導き哉。',
+						'雲霧、変幻し消えていく…なれど山々は、いつまでも変わらぬ。',
 					],
 					line: 2,
-					lineArr: [1, 2, 1, 2],
-					checkPoint: [0, 8, 17, 27]
+					lineArr: [2, 2],
+					checkPoint: [1, 14]
 				},
 				cuyu: {
-					roleName: '西湖醋鱼',  //done
-					cv: '(CV:杨鸥)',
+					roleName: '西湖酢魚',  //done
+					cv: '(CV:井上喜久子)',
 					txt: [
-						'长久以来，此处只有小女子一人，今日有幸能盼来您的到访，心中不甚欢喜。',
-						'您口中的新年，是何人？小女子从未听闻过。',
-						'那是？似是繁花，但又为何会是在空中？您能带小女子去窥其真容吗？'
+						'妾は西湖酢魚、ふつつか者ですが、以後、お見知り置きを。',
 					],
 					line: 2,
-					lineArr: [2, 1, 2],
-					checkPoint: [0, 11.5, 20]
+					lineArr: [],
+					checkPoint: [3]
 				},
 				egan: {
 					roleName: 'フォアグラソテー',  //done
 					cv: '(CV:浅野真澄)',
 					txt: [
-						'私達の出会いも、一種の運命ですね',
-						'这是，命运的安排。',
-						'喜欢……这朵花？——那就赠予你吧。',
-						'毕竟，你是我的命定之人。'
+						'ふん、ついに、私と出会ってしまったわね……',
+						'運命からは逃れられない、私も、君も。',
 					],
 					line: 1,
 					lineArr: [],
-					checkPoint: [0, 4, 9, 17]
+					checkPoint: [3, 11]
 				},
 				futejia: {
-					roleName: '伏特加',  //done
-					cv: '(CV:陈奕雯)',
+					roleName: 'ウォッカ',  //done
+					cv: '(CV:川澄綾子)',
 					txt: [
-						'下雪了，要不要来一杯？',
-						'你要是喝醉的话，我可不负责送你回家。',
-						'诶~没想到你还挺能喝的，再来一杯！'
-					],
-					line: 1,
-					lineArr: [],
-					checkPoint: [0, 5, 13]
-				},
-				tilamisu: {
-					roleName: '提拉米苏',  //done
-					cv: '(CV:夏一可)',
-					txt: [
-						'欢迎回来，御侍大人，年夜饭已经准备好了哦。',
-						'今夜是阖家团圆的时刻呢，能和御侍大人在一起，我真的很开心。',
-						'御侍大人在新的一年里，有什么想要实现的愿望吗？',
-						'诶？我的心愿吗？呵呵，如果御侍大人的心愿会实现，那我便也得偿所愿了呢。',
+						'あんたがその料理御侍とかいう奴？',
+						'ま、いいでしょう。アンデレには清潔できちんとした寝床が必要よ、決して疎かにしないで。',
+						'私なら…酒があれば充分。'
 					],
 					line: 2,
-					lineArr: [1, 2, 1, 2],
-					checkPoint: [0, 6, 13, 22]
+					lineArr: [1, 2, 1],
+					checkPoint: [2, 7, 17]
+				},
+				tilamisu: {
+					roleName: 'ティラミス',  //done
+					cv: '(CV:北川里奈)',
+					txt: [
+						'わたくしを選んで頂けるとは、未だに夢を見ているような気分です。',
+						'御侍様と共に過ごす一分一秒を、大切にしていたいと思っています。',
+					],
+					line: 2,
+					lineArr: [2, 2],
+					checkPoint: [0.5, 6]
 				}
 			},
 			index: 0,
 			boolSwitch: false,
 			boolShare: false,
 			point: 0,
-			//iOS中safari使用state
+			// iOS中safari使用state
 			playEnd: true,
-			isFirst: true
+			isFirst: true,
+			// 是否可以播放
+			canPlay: false,
 		};
 		this.onHandleListen = this.onHandleListen.bind(this);
 		this.onShareSwitch = this.onShareSwitch.bind(this);
@@ -197,34 +186,72 @@ class index extends Component{
 		this.rap.audioEl.play();
 	}
 	componentDidMount(){
-		let _this = this;
+		// let _this = this;
+		let source=document.createElement('source');
 		switch(this.props.roles){
 			case 'kaoya':
+				source.src = kaoyaMp3;
 				DEMO();
 				break;
 			case 'qiudaoyu':
+				source.src = qiudaoyuMp3;
 				LEAF(this.props.roles);
 				break;
 			case 'tilamisu':
+				source.src = tilamisuMp3;
 				LEAF(this.props.roles);
 				break;
 			case 'zhutongfan':
+				source.src = zhutongfanMp3;
 				LEAF(this.props.roles);
 				break;
 			case 'xiaolongxia':
+				source.src = xiaolongxiaMp3;
 				SNOW(window.jQuery);
+				break;
+			case 'egan':
+				source.src = eganMp3;
+				break;
+			case 'cuyu':
+				source.src = cuyuMp3;
+				break;
+			case 'qiaokeli':
+				source.src = qiaokeliMp3;
+				break;
+			case 'futejia':
+				source.src = futejiaMp3;
+				break;
+			case 'guilinggao':
+				source.src = guilinggaoMp3;
+				break;
+			case 'yunwu':
+				source.src = yunwuMp3;
 				break;
 			default:
 				break;
 		}
-		if(window.isWeChat()){
-			document.addEventListener("WeixinJSBridgeReady", function () {
-				_this.rap.audioEl.play();
-			}, false);
-		}
+		this.rap.audioEl.appendChild(source);
+		// if(window.isWeChat()){
+		// 	document.addEventListener("WeixinJSBridgeReady", function () {
+		// 		_this.rap.audioEl.play();
+		// 	}, false);
+		// }
+	}
+	componentWillUnmount() {
+		this.setState({
+			boolSwitch: false,
+			boolShare: false,
+			canPlay: false,
+			point: 0,
+		});
 	}
 	onPlay(){
 		this.rap.audioEl.play();
+	}
+	handleOnCanPlayThrougt = () => {
+		this.setState({
+			canPlay: true,
+		});
 	}
 	render(){
 		let data = this.state.data;
@@ -245,34 +272,9 @@ class index extends Component{
 				<div className={this.state.boolSwitch ? 'shade shade_wrapper_2' : 'shade shade_wrapper_1'}>
 					<ReactAudioPlayer
 						ref={(element)=>{ this.rap = element; }}
-						src={
-							role === 'xiaolongxia' ?
-							xiaolongxiaMp3
-							: role === 'tilamisu' ?
-							tilamisuMp3
-							: role === 'kaoya' ?
-							kaoyaMp3
-							: role === 'zhutongfan' ?
-							zhutongfanMp3
-							: role === 'qiaokeli' ?
-							qiaokeliMp3
-							: role === 'qiudaoyu' ?
-							qiudaoyuMp3
-							: role === 'egan' ?
-							eganMp3
-							: role === 'futejia' ?
-							futejiaMp3
-							: role === 'yunwu' ?
-							yunwuMp3
-							: role === 'cuyu' ?
-							cuyuMp3
-							: role === 'guilinggao' ?
-							guilinggaoMp3
-							:
-							null
-						}
 						className="bgm"
 					  listenInterval={20}
+						onCanPlayThrough={this.handleOnCanPlayThrougt}
 						onListen={(passed)=>{
 							this.onHandleListen(passed, data[this.props.roles].checkPoint);
 						}}
@@ -280,6 +282,7 @@ class index extends Component{
 							this.setState({boolSwitch: true, index: 0, playEnd: true});
 						}}
 					/>
+
 					{/*
 						<audio preload='preload' loop className='bgm2' controls src='http://stor.cloudmusics.cn/mp3/2018/02/c68bbd516f2acc2a844c7b786c71fec2.mp3'></audio>
 					*/}
@@ -287,7 +290,14 @@ class index extends Component{
 						this.state.boolSwitch ?
 						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} cv={data[this.props.roles].cv} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
 						:
-						<SubTitle index={this.state.index} txtArr={data[this.props.roles].txt} isFirst={this.state.isFirst} line={data[this.props.roles].line} lineArr={data[this.props.roles].lineArr} />
+						<SubTitle
+							index={this.state.index}
+							canPlay={this.state.canPlay}
+							txtArr={data[this.props.roles].txt}
+							isFirst={this.state.isFirst}
+							line={data[this.props.roles].line}
+							lineArr={data[this.props.roles].lineArr}
+						/>
 					}
 				</div>
 				{
@@ -299,17 +309,21 @@ class index extends Component{
 						}}
 					></div>
 					:
-					<div onTouchStart={()=>{window.location.href="http://food.funtoygame.com"}} className="download">
-					</div>
-				}
-				{/*<div className="point">{this.state.point}</div>*/}
+					<a href="http://food.funtoygame.com" target="_blank" className="download">
+					</a>
+				 }
+				{/* <div className="point">{this.state.point}</div> */}
 				{
-					!window.isWeChat() && this.state.playEnd && this.state.isFirst ?
+					this.state.playEnd && this.state.isFirst ?
 					<div
 						onTouchStart={(e)=>{
-							if(window.isWeChat()){
-								return;
-							} else if(this.state.playEnd) {
+							// if(window.isWeChat()){
+							// 	return;
+							// } else if(this.state.playEnd) {
+							// 	this.onPlay();
+							// 	this.setState({playEnd: false, isFirst: false});
+							// }
+							if (this.state.playEnd && this.state.canPlay) {
 								this.onPlay();
 								this.setState({playEnd: false, isFirst: false});
 							}
@@ -356,8 +370,13 @@ class SubTitle extends Component{
 					})}
 				</div>
 				{
-					this.props.isFirst && !window.isWeChat() ?
-					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>点击屏幕开始播放</div>
+					// this.props.isFirst && !window.isWeChat() ?
+					this.props.isFirst ?
+					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>
+						{
+							!this.props.canPlay ? 'Loading...' : '点击屏幕开始播放'
+						}
+					</div>
 					:
 					null
 				}
@@ -416,22 +435,17 @@ class EndPart extends Component{
 							this.setState({ztybHover: false});
 						}}
 					></span>
-					<span
-						className={this.state.shareHover ? 'btn_share hover' : 'btn_share'}
+					<a
+						className={this.state.shareHover ? 'btn_share hover twitter-share-button' : 'btn_share twitter-share-button'}
+					  href="https://twitter.com/intent/tweet?url=http://vx78ij.natappfree.cc/egan"
 						onTouchStart={(e)=>{
-							e.preventDefault();
 							this.setState({shareHover: true});
 						}}
 						onTouchEnd={(e)=>{
-							let _this = this;
-							e.preventDefault();
-							this.onBtnTrigger(e, function(){_this.props.onShareSwitch(true)});
 							this.setState({shareHover: false});
 						}}
-					></span>
-					<a class="twitter-share-button"
-					  href="https://twitter.com/intent/tweet?url=http://vx78ij.natappfree.cc/egan">
-					Tweet</a>
+					>
+					</a>
 				</div>
 			</div>
 		)
