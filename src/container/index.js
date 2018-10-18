@@ -125,10 +125,10 @@ class index extends Component{
 					checkPoint: [0, 11.5, 20]
 				},
 				egan: {
-					roleName: '法式鹅肝',  //done
-					cv: '(CV:醋醋)',
+					roleName: 'フォアグラソテー',  //done
+					cv: '(CV:浅野真澄)',
 					txt: [
-						'是你……开始签订契约吧。',
+						'私達の出会いも、一種の運命ですね',
 						'这是，命运的安排。',
 						'喜欢……这朵花？——那就赠予你吧。',
 						'毕竟，你是我的命定之人。'
@@ -429,6 +429,9 @@ class EndPart extends Component{
 							this.setState({shareHover: false});
 						}}
 					></span>
+					<a class="twitter-share-button"
+					  href="https://twitter.com/intent/tweet?url=http://vx78ij.natappfree.cc/egan">
+					Tweet</a>
 				</div>
 			</div>
 		)
