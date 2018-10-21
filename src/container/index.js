@@ -20,8 +20,8 @@ import guilinggaoMp3 from '../audio/guilinggao.mp3';
 import DEMO from '../plugin/rain/js/index';
 import LEAF from '../plugin/leaf/js/index';
 import SNOW from '../plugin/snow/js/jquery.let_it_snow';
-//import vConsole from 'vconsole';
-//new vConsole();
+// import vConsole from 'vconsole';
+// new vConsole();
 
 class index extends Component{
 	constructor(props){
@@ -95,8 +95,8 @@ class index extends Component{
 					checkPoint: [2, 8.5]
 				},
 				yunwu: {
-					roleName: '庐山云雾',  //done
-					cv: '(CV:冯骏骅)',
+					roleName: '廬山雲霧茶',  //done
+					cv: '(CV:沢城みゆき)',
 					txt: [
 						'霧と香りに包まれしこの最果の地に、こうしてそなたと出会いしこと、これ全て「縁」の導き哉。',
 						'雲霧、変幻し消えていく…なれど山々は、いつまでも変わらぬ。',
@@ -188,6 +188,7 @@ class index extends Component{
 	componentDidMount(){
 		// let _this = this;
 		let source=document.createElement('source');
+		source.src = null;
 		switch(this.props.roles){
 			case 'kaoya':
 				source.src = kaoyaMp3;
@@ -231,6 +232,7 @@ class index extends Component{
 				break;
 		}
 		this.rap.audioEl.appendChild(source);
+		this.rap.audioEl.load();
 		// if(window.isWeChat()){
 		// 	document.addEventListener("WeixinJSBridgeReady", function () {
 		// 		_this.rap.audioEl.play();
@@ -248,7 +250,7 @@ class index extends Component{
 	onPlay(){
 		this.rap.audioEl.play();
 	}
-	handleOnCanPlayThrougt = () => {
+	handleOnCanPlayThrough = () => {
 		this.setState({
 			canPlay: true,
 		});
@@ -274,7 +276,9 @@ class index extends Component{
 						ref={(element)=>{ this.rap = element; }}
 						className="bgm"
 					  listenInterval={20}
-						onCanPlayThrough={this.handleOnCanPlayThrougt}
+						// onCanPlay={this.handleOnCanPlayThrough}
+						onCanPlayThrough={this.handleOnCanPlayThrough}
+						// onLoadedMetadata={this.handleOnCanPlayThrough}
 						onListen={(passed)=>{
 							this.onHandleListen(passed, data[this.props.roles].checkPoint);
 						}}
@@ -316,7 +320,7 @@ class index extends Component{
 				{
 					this.state.playEnd && this.state.isFirst ?
 					<div
-						onTouchStart={(e)=>{
+						onTouchEnd={(e)=>{
 							// if(window.isWeChat()){
 							// 	return;
 							// } else if(this.state.playEnd) {
@@ -374,7 +378,7 @@ class SubTitle extends Component{
 					this.props.isFirst ?
 					<div className={this.props.line === 1 ? 'play_txt play_txt_1' : 'play_txt play_txt_2'}>
 						{
-							!this.props.canPlay ? 'Loading...' : '点击屏幕开始播放'
+							!this.props.canPlay ? 'Loading...' : 'スクリーンをタップして、プレイします'
 						}
 					</div>
 					:
@@ -437,7 +441,7 @@ class EndPart extends Component{
 					></span>
 					<a
 						className={this.state.shareHover ? 'btn_share hover twitter-share-button' : 'btn_share twitter-share-button'}
-					  href="https://twitter.com/intent/tweet?url=http://vx78ij.natappfree.cc/egan"
+					  href="https://twitter.com/intent/tweet?url=http://pic.twitter.com/B7UcGgvjz5"
 						onTouchStart={(e)=>{
 							this.setState({shareHover: true});
 						}}
