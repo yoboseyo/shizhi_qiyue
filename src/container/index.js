@@ -37,7 +37,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2],
-					checkPoint: [7, 9]
+					checkPoint: [7, 9],
+					imageUrl: 'pic.twitter.com/7WMTB47Bqo',
 				},
 				xiaolongxia: {
 					roleName: '麻辣ザリガニ',  //done
@@ -48,7 +49,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [2, 2],
-					checkPoint: [1, 10]
+					checkPoint: [1, 10],
+					imageUrl: 'pic.twitter.com/6ffEt8XubR',
 				},
 				zhutongfan: {
 					roleName: '竹飯',  //done
@@ -58,7 +60,8 @@ class index extends Component{
 					],
 					line: 1,
 					lineArr: [],
-					checkPoint: [3]
+					checkPoint: [3],
+					imageUrl: 'pic.twitter.com/sDV8GIIl5U',
 				},
 				qiudaoyu: {
 					roleName: 'さんまの塩焼き',  //done
@@ -70,7 +73,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 1, 2],
-					checkPoint: [0.5, 7, 14]
+					checkPoint: [0.5, 7, 14],
+					imageUrl: 'pic.twitter.com/WzhWgVIW0o',
 				},
 				qiaokeli: {
 					roleName: 'チョコレート',  //done
@@ -81,7 +85,8 @@ class index extends Component{
 					],
 					line: 1,
 					lineArr: [],
-					checkPoint: [1, 6]
+					checkPoint: [1, 6],
+					imageUrl: 'pic.twitter.com/NzlPX0l7fl',
 				},
 				guilinggao: {
 					roleName: '亀苓膏',
@@ -92,7 +97,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2],
-					checkPoint: [2, 8.5]
+					checkPoint: [2, 8.5],
+					imageUrl: 'pic.twitter.com/rG1zcZjfaF',
 				},
 				yunwu: {
 					roleName: '廬山雲霧茶',  //done
@@ -103,7 +109,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [2, 2],
-					checkPoint: [1, 14]
+					checkPoint: [1, 14],
+					imageUrl: 'pic.twitter.com/wZE3rq6aZU',
 				},
 				cuyu: {
 					roleName: '西湖酢魚',  //done
@@ -113,7 +120,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [],
-					checkPoint: [3]
+					checkPoint: [3],
+					imageUrl: 'pic.twitter.com/UVgs160CiZ',
 				},
 				egan: {
 					roleName: 'フォアグラソテー',  //done
@@ -124,7 +132,8 @@ class index extends Component{
 					],
 					line: 1,
 					lineArr: [],
-					checkPoint: [3, 11]
+					checkPoint: [3, 11],
+					imageUrl: 'pic.twitter.com/gbbOtD98Fi',
 				},
 				futejia: {
 					roleName: 'ウォッカ',  //done
@@ -136,7 +145,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [1, 2, 1],
-					checkPoint: [2, 7, 17]
+					checkPoint: [2, 7, 17],
+					imageUrl: 'pic.twitter.com/52eedoXZpp',
 				},
 				tilamisu: {
 					roleName: 'ティラミス',  //done
@@ -147,7 +157,8 @@ class index extends Component{
 					],
 					line: 2,
 					lineArr: [2, 2],
-					checkPoint: [0.5, 6]
+					checkPoint: [0.5, 6],
+					imageUrl: 'pic.twitter.com/XeTGv9Sdmn',
 				}
 			},
 			index: 0,
@@ -292,7 +303,7 @@ class index extends Component{
 					*/}
 					{
 						this.state.boolSwitch ?
-						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} cv={data[this.props.roles].cv} onShareSwitch={this.onShareSwitch} onReset={this.onReset} />
+						<EndPart roleName={data[this.props.roles].roleName} txtArr={data[this.props.roles].txt} cv={data[this.props.roles].cv} onShareSwitch={this.onShareSwitch} onReset={this.onReset} imageUrl={data[this.props.roles].imageUrl} />
 						:
 						<SubTitle
 							index={this.state.index}
@@ -313,8 +324,7 @@ class index extends Component{
 						}}
 					></div>
 					:
-					<a href="http://food.funtoygame.com" target="_blank" className="download">
-					</a>
+					null
 				 }
 				{/* <div className="point">{this.state.point}</div> */}
 				{
@@ -441,7 +451,7 @@ class EndPart extends Component{
 					></span>
 					<a
 						className={this.state.shareHover ? 'btn_share hover twitter-share-button' : 'btn_share twitter-share-button'}
-					  href="https://twitter.com/intent/tweet?url=http://pic.twitter.com/B7UcGgvjz5"
+					  href={`https://twitter.com/intent/tweet?url=https://${this.props.imageUrl}&text=【食霊ボイス公開中】食欲の晩秋、美食たちのささやきに耳を澄ませてみよう。彼らの温もりと出会うとき、新たな物語が始まる...https://www.foodfantasy.jp/&hashtags=フードファンタジー,フーファン #食霊のティアラ`}
 						onTouchStart={(e)=>{
 							this.setState({shareHover: true});
 						}}
@@ -451,6 +461,8 @@ class EndPart extends Component{
 					>
 					</a>
 				</div>
+				<a href="https://www.foodfantasy.jp/" target="_blank" className="download">
+				</a>
 			</div>
 		)
 	}
