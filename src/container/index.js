@@ -61,7 +61,7 @@ class index extends Component{
 					line: 1,
 					lineArr: [],
 					checkPoint: [3],
-					imageUrl: 'pic.twitter.com/sDV8GIIl5U',
+					imageUrl: 'pic.twitter.com/HQcBRy5PTl',
 				},
 				qiudaoyu: {
 					roleName: 'さんまの塩焼き',  //done
@@ -74,7 +74,7 @@ class index extends Component{
 					line: 2,
 					lineArr: [1, 1, 2],
 					checkPoint: [0.5, 7, 14],
-					imageUrl: 'pic.twitter.com/WzhWgVIW0o',
+					imageUrl: 'pic.twitter.com/3S3V7fm8XS',
 				},
 				qiaokeli: {
 					roleName: 'チョコレート',  //done
